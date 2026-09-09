@@ -8,18 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #070714;
-      --bg-card: rgba(255,255,255,0.05);
-      --bg-card-hover: rgba(255,255,255,0.09);
+      --bg-primary: #e8f4f8;
+      --bg-secondary: #dceef5;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f0f8fc;
       --accent-blue: #0176d3;
+      --accent-navy: #032d60;
       --accent-purple: #7c3aed;
       --accent-teal: #06b6d4;
+      --accent-cyan: #1ecbe1;
       --accent-green: #10b981;
-      --accent-gradient: linear-gradient(135deg, #0176d3, #7c3aed, #06b6d4);
-      --text-primary: #ffffff;
-      --text-secondary: rgba(255,255,255,0.7);
-      --text-muted: rgba(255,255,255,0.45);
-      --border-color: rgba(255,255,255,0.1);
+      --accent-orange: #f59e0b;
+      --accent-gradient: linear-gradient(135deg, #0176d3, #06b6d4);
+      --text-primary: #032d60;
+      --text-secondary: #1b4f72;
+      --text-muted: #5a8aad;
+      --border-color: rgba(1,118,211,0.12);
       --radius-lg: 16px;
       --radius-md: 12px;
       --radius-sm: 8px;
@@ -41,9 +45,8 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse at 20% 15%, rgba(1,118,211,0.12) 0%, transparent 55%),
-        radial-gradient(ellipse at 80% 85%, rgba(124,58,237,0.08) 0%, transparent 55%),
-        radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.05) 0%, transparent 60%);
+        radial-gradient(ellipse at 20% 90%, rgba(6,182,212,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 10%, rgba(1,118,211,0.08) 0%, transparent 50%);
       pointer-events: none;
       z-index: 0;
     }
@@ -63,8 +66,7 @@
     }
     .sparkles {
       font-size: 22px;
-      color: var(--accent-teal);
-      opacity: .55;
+      color: var(--accent-cyan);
       letter-spacing: 18px;
       margin-bottom: 12px;
     }
@@ -78,8 +80,15 @@
       letter-spacing: .8px;
       text-transform: uppercase;
       margin-bottom: 18px;
+      background: var(--bg-card);
     }
     .hero h1 {
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 800;
+      color: var(--accent-navy);
+      line-height: 1.05;
+    }
+    .hero .year {
       font-size: clamp(44px, 8vw, 76px);
       font-weight: 800;
       background: var(--accent-gradient);
@@ -88,15 +97,9 @@
       background-clip: text;
       line-height: 1.05;
     }
-    .hero .year {
-      font-size: clamp(44px, 8vw, 76px);
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1.05;
-    }
     .hero .subtitle {
       font-size: 15px;
-      color: var(--accent-teal);
+      color: var(--accent-blue);
       font-weight: 600;
       margin: 10px 0 14px;
     }
@@ -117,6 +120,7 @@
       border-radius: 24px;
       font-size: 13px;
       color: var(--text-secondary);
+      box-shadow: 0 2px 8px rgba(1,118,211,0.06);
     }
 
     /* --- Stats --- */
@@ -133,16 +137,14 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       padding: 22px 14px;
-      transition: transform .2s, background .2s;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 2px 8px rgba(1,118,211,0.06);
     }
-    .stat-card:hover { transform: translateY(-2px); background: var(--bg-card-hover); }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(1,118,211,0.1); }
     .stat-number {
       font-size: 34px;
       font-weight: 800;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--accent-blue);
     }
     .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
     .stat-label em { color: var(--text-muted); font-style: normal; display: block; margin-top: 2px; }
@@ -166,15 +168,15 @@
       text-decoration: none;
       color: inherit;
       display: block;
+      box-shadow: 0 2px 8px rgba(1,118,211,0.06);
     }
     .nav-card:hover {
-      background: var(--bg-card-hover);
       border-color: var(--accent-blue);
       transform: translateY(-3px);
       box-shadow: 0 8px 28px rgba(1,118,211,0.12);
     }
     .nav-card .icon { font-size: 30px; margin-bottom: 10px; }
-    .nav-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .nav-card h3 { font-size: 17px; font-weight: 700; color: var(--accent-navy); margin-bottom: 4px; }
     .nav-card p { font-size: 13px; color: var(--text-secondary); }
 
     /* --- Sections --- */
@@ -191,10 +193,10 @@
 
     .back-link {
       display: inline-flex; align-items: center; gap: 6px;
-      color: var(--text-secondary); text-decoration: none; font-size: 13px;
-      margin-top: 28px; cursor: pointer; transition: color .2s;
+      color: var(--accent-blue); text-decoration: none; font-size: 13px;
+      margin-top: 28px; cursor: pointer; transition: color .2s; font-weight: 500;
     }
-    .back-link:hover { color: var(--text-primary); }
+    .back-link:hover { color: var(--accent-navy); }
 
     /* --- Contact --- */
     .contact-card {
@@ -205,14 +207,15 @@
       display: flex; align-items: center; gap: 16px;
       max-width: 400px;
       margin: 0 auto;
+      box-shadow: 0 2px 8px rgba(1,118,211,0.06);
     }
     .contact-avatar {
       width: 50px; height: 50px; border-radius: 50%;
       background: var(--accent-gradient);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 17px; flex-shrink: 0;
+      font-weight: 700; font-size: 17px; flex-shrink: 0; color: #fff;
     }
-    .contact-info h4 { font-size: 15px; font-weight: 700; }
+    .contact-info h4 { font-size: 15px; font-weight: 700; color: var(--accent-navy); }
     .contact-info .role { font-size: 12px; color: var(--text-secondary); margin-bottom: 5px; }
     .contact-info a { font-size: 13px; color: #25d366; text-decoration: none; font-weight: 600; }
     .contact-info a:hover { text-decoration: underline; }
@@ -224,8 +227,9 @@
       border-radius: var(--radius-lg);
       padding: 22px;
       margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(1,118,211,0.06);
     }
-    .checklist-group h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .checklist-group h3 { font-size: 16px; font-weight: 700; color: var(--accent-navy); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
     .checklist-item {
       display: flex; align-items: flex-start; gap: 12px;
       padding: 9px 0;
@@ -236,7 +240,7 @@
       width: 17px; height: 17px; margin-top: 3px;
       accent-color: var(--accent-blue); flex-shrink: 0;
     }
-    .checklist-text .en { font-size: 13px; color: var(--text-primary); }
+    .checklist-text .en { font-size: 13px; color: var(--accent-navy); }
     .checklist-text .pt { font-size: 12px; color: var(--text-muted); }
 
     /* --- Sessions --- */
@@ -244,6 +248,7 @@
       font-size: 20px; font-weight: 800; margin: 28px 0 14px;
       padding-bottom: 8px;
       border-bottom: 2px solid var(--accent-blue);
+      color: var(--accent-navy);
     }
     .session-card {
       background: var(--bg-card);
@@ -252,31 +257,38 @@
       padding: 18px;
       margin-bottom: 10px;
       transition: all .2s;
+      box-shadow: 0 2px 8px rgba(1,118,211,0.04);
     }
-    .session-card:hover { border-color: var(--accent-purple); background: var(--bg-card-hover); }
+    .session-card:hover { border-color: var(--accent-blue); box-shadow: 0 4px 16px rgba(1,118,211,0.1); }
+    .session-card a.session-link {
+      display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600;
+      color: var(--accent-blue); text-decoration: none; transition: color .2s;
+    }
+    .session-card a.session-link:hover { color: var(--accent-navy); text-decoration: underline; }
     .session-card.keynote {
-      border-color: rgba(124,58,237,0.4);
-      background: rgba(124,58,237,0.08);
+      border-color: rgba(1,118,211,0.3);
+      background: linear-gradient(135deg, #f0f8ff, #e8f4f8);
+      border-left: 4px solid var(--accent-blue);
     }
-    .session-time { font-size: 12px; color: var(--accent-teal); font-weight: 600; margin-bottom: 3px; }
-    .session-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .session-time { font-size: 12px; color: var(--accent-blue); font-weight: 600; margin-bottom: 3px; }
+    .session-title { font-size: 15px; font-weight: 700; color: var(--accent-navy); margin-bottom: 4px; }
     .session-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 11px; color: var(--text-muted); margin-top: 6px; }
     .session-tag {
       display: inline-block; padding: 2px 8px; border-radius: 4px;
       font-size: 10px; font-weight: 600;
     }
-    .tag-hc { background: rgba(16,185,129,0.15); color: var(--accent-green); }
-    .tag-ls { background: rgba(124,58,237,0.15); color: #a78bfa; }
-    .tag-keynote { background: rgba(251,191,36,0.15); color: #fbbf24; }
-    .tag-workshop { background: rgba(244,63,94,0.15); color: #fb7185; }
-    .tag-roundtable { background: rgba(6,182,212,0.15); color: var(--accent-teal); }
+    .tag-hc { background: rgba(16,185,129,0.12); color: #059669; }
+    .tag-ls { background: rgba(124,58,237,0.1); color: #7c3aed; }
+    .tag-keynote { background: rgba(245,158,11,0.12); color: #d97706; }
+    .tag-workshop { background: rgba(244,63,94,0.1); color: #e11d48; }
+    .tag-roundtable { background: rgba(6,182,212,0.1); color: #0891b2; }
 
     .track-toggle {
       display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;
     }
     .track-btn {
       padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color);
-      background: transparent; color: var(--text-secondary); font-size: 12px; font-weight: 600;
+      background: var(--bg-card); color: var(--text-secondary); font-size: 12px; font-weight: 600;
       cursor: pointer; transition: all .2s; font-family: inherit;
     }
     .track-btn.active, .track-btn:hover {
@@ -293,11 +305,12 @@
       border-radius: var(--radius-lg);
       padding: 22px;
       margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(1,118,211,0.06);
     }
-    .tip-group h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+    .tip-group h3 { font-size: 16px; font-weight: 700; color: var(--accent-navy); margin-bottom: 12px; }
     .tip-item { padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 13px; color: var(--text-secondary); }
     .tip-item:last-child { border-bottom: none; }
-    .tip-item strong { color: var(--text-primary); }
+    .tip-item strong { color: var(--accent-navy); }
 
     /* --- Maps --- */
     .map-card {
@@ -306,10 +319,11 @@
       border-radius: var(--radius-lg);
       padding: 22px;
       margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(1,118,211,0.06);
     }
-    .map-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .map-card h3 { font-size: 16px; font-weight: 700; color: var(--accent-navy); margin-bottom: 10px; }
     .map-card p { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
-    .map-card .highlight { color: var(--accent-teal); font-weight: 600; }
+    .map-card .highlight { color: var(--accent-blue); font-weight: 600; }
 
     /* --- Footer --- */
     .footer {
@@ -318,7 +332,7 @@
       border-top: 1px solid var(--border-color);
       margin-top: 40px;
     }
-    .footer a { color: var(--accent-teal); text-decoration: none; }
+    .footer a { color: var(--accent-blue); text-decoration: none; }
 
     @media (max-width: 600px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -589,8 +603,9 @@
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3024</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839148129001Gj4Q" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -599,8 +614,9 @@
       <div class="session-meta">
         <span>&#128205; Moscone West, L2, Apps Theater</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.1);color:#0891b2">Theater</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839154523001Ghxi" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls keynote">
@@ -611,6 +627,7 @@
         <span class="session-tag tag-ls">Life Sciences</span>
         <span class="session-tag tag-keynote">Keynote</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781727001455001liKc" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -621,6 +638,7 @@
         <span class="session-tag tag-hc">Healthcare</span>
         <span class="session-tag tag-workshop">Workshop</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839175954001GCfb" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -629,8 +647,9 @@
       <div class="session-meta">
         <span>&#128205; Moscone North, Campground, Theater 1</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.1);color:#0891b2">Theater</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839152125001G0sW" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls">
@@ -639,8 +658,9 @@
       <div class="session-meta">
         <span>&#128205; Moscone North, Campground, Industries Pavilion</span>
         <span class="session-tag tag-ls">Life Sciences</span>
-        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.1);color:#0891b2">Theater</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839156939001GAsh" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <!-- ===== WEDNESDAY ===== -->
@@ -652,8 +672,9 @@
       <div class="session-meta">
         <span>&#128205; Metreon AMC, L3, Theater 13</span>
         <span class="session-tag tag-ls">Life Sciences</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839142907001GNBx" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card keynote" data-track="hc">
@@ -664,6 +685,7 @@
         <span class="session-tag tag-hc">Healthcare</span>
         <span class="session-tag tag-keynote">Keynote</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781727000053001lV5c" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls">
@@ -672,8 +694,9 @@
       <div class="session-meta">
         <span>&#128205; Metreon AMC, L3, Theater 13</span>
         <span class="session-tag tag-ls">Life Sciences</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839140229001Gz1u" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls">
@@ -684,6 +707,7 @@
         <span class="session-tag tag-ls">Life Sciences</span>
         <span class="session-tag tag-roundtable">Roundtable</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839167681001GksA" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -692,8 +716,9 @@
       <div class="session-meta">
         <span>&#128205; Metreon AMC, L3, Theater 13</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839145477001GK5L" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -702,8 +727,9 @@
       <div class="session-meta">
         <span>&#128205; Moscone South, LL, Content Pavilion, Stage 8</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.1);color:#0891b2">Theater</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839153327001GFeO" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -712,8 +738,9 @@
       <div class="session-meta">
         <span>&#128205; Metreon AMC, L3, Theater 7</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839149548001GOaB" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls">
@@ -724,6 +751,7 @@
         <span class="session-tag tag-ls">Life Sciences</span>
         <span class="session-tag tag-roundtable">Roundtable</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839165280001GRII" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <!-- ===== THURSDAY ===== -->
@@ -737,6 +765,7 @@
         <span class="session-tag tag-ls">Life Sciences</span>
         <span class="session-tag tag-workshop">Workshop</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839174788001G2uA" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -745,8 +774,9 @@
       <div class="session-meta">
         <span>&#128205; Metreon AMC, Theater 13</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839146847001GpPq" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls">
@@ -755,8 +785,9 @@
       <div class="session-meta">
         <span>&#128205; Metreon AMC, L3, Theater 13</span>
         <span class="session-tag tag-ls">Life Sciences</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839141642001GSV0" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls">
@@ -765,8 +796,9 @@
       <div class="session-meta">
         <span>&#128205; Metreon AMC, L3, Theater 14</span>
         <span class="session-tag tag-ls">Life Sciences</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839144144001GNwm" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="hc">
@@ -775,8 +807,9 @@
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3018</span>
         <span class="session-tag tag-hc">Healthcare</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779898824488001CkbF" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div class="session-card" data-track="ls">
@@ -785,8 +818,9 @@
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3018</span>
         <span class="session-tag tag-ls">Life Sciences</span>
-        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839142907001GNBx" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <div style="text-align:center; margin-top: 24px;">
