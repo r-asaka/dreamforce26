@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health & Life Sciences | Dreamforce 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #070714;
+      --bg-card: rgba(255,255,255,0.05);
+      --bg-card-hover: rgba(255,255,255,0.09);
+      --accent-blue: #0176d3;
+      --accent-purple: #7c3aed;
+      --accent-teal: #06b6d4;
+      --accent-green: #10b981;
+      --accent-gradient: linear-gradient(135deg, #0176d3, #7c3aed, #06b6d4);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.7);
+      --text-muted: rgba(255,255,255,0.45);
+      --border-color: rgba(255,255,255,0.1);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 15%, rgba(1,118,211,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 85%, rgba(124,58,237,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      text-align: center;
+      padding: 50px 20px 30px;
+    }
+    .sparkles {
+      font-size: 22px;
+      color: var(--accent-teal);
+      opacity: .55;
+      letter-spacing: 18px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 18px;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.05;
+    }
+    .hero .year {
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.05;
+    }
+    .hero .subtitle {
+      font-size: 15px;
+      color: var(--accent-teal);
+      font-weight: 600;
+      margin: 10px 0 14px;
+    }
+    .hero .desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 22px;
+    }
+    .hero .desc em { color: var(--text-muted); font-style: normal; }
+    .event-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* --- Stats --- */
+    .stats { padding: 36px 0; text-align: center; }
+    .stats h2 { font-size: clamp(18px, 3.5vw, 26px); font-weight: 700; margin-bottom: 6px; }
+    .stats .sub { color: var(--text-muted); font-size: 14px; margin-bottom: 28px; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px 14px;
+      transition: transform .2s, background .2s;
+    }
+    .stat-card:hover { transform: translateY(-2px); background: var(--bg-card-hover); }
+    .stat-number {
+      font-size: 34px;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+    .stat-label em { color: var(--text-muted); font-style: normal; display: block; margin-top: 2px; }
+
+    /* --- Nav Grid --- */
+    .nav-section { padding: 32px 0; }
+    .nav-section h2 { text-align: center; font-size: 22px; margin-bottom: 4px; }
+    .nav-section .sub { text-align: center; color: var(--text-muted); font-size: 15px; margin-bottom: 22px; }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+    .nav-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      cursor: pointer;
+      transition: all .25s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .nav-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(1,118,211,0.12);
+    }
+    .nav-card .icon { font-size: 30px; margin-bottom: 10px; }
+    .nav-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .nav-card p { font-size: 13px; color: var(--text-secondary); }
+
+    /* --- Sections --- */
+    .section { display: none; padding: 36px 0; animation: fadeIn .3s ease; }
+    .section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .section-header { text-align: center; margin-bottom: 28px; }
+    .section-header .overline {
+      font-size: 12px; color: var(--accent-teal);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;
+    }
+    .section-header h2 { font-size: 28px; font-weight: 800; }
+    .section-header h2 span { font-size: 18px; color: var(--text-secondary); font-weight: 500; display: block; margin-top: 4px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-secondary); text-decoration: none; font-size: 13px;
+      margin-top: 28px; cursor: pointer; transition: color .2s;
+    }
+    .back-link:hover { color: var(--text-primary); }
+
+    /* --- Contact --- */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex; align-items: center; gap: 16px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .contact-avatar {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 17px; flex-shrink: 0;
+    }
+    .contact-info h4 { font-size: 15px; font-weight: 700; }
+    .contact-info .role { font-size: 12px; color: var(--text-secondary); margin-bottom: 5px; }
+    .contact-info a { font-size: 13px; color: #25d366; text-decoration: none; font-weight: 600; }
+    .contact-info a:hover { text-decoration: underline; }
+
+    /* --- Checklist --- */
+    .checklist-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+    .checklist-group h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .checklist-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .checklist-item:last-child { border-bottom: none; }
+    .checklist-item input[type="checkbox"] {
+      width: 17px; height: 17px; margin-top: 3px;
+      accent-color: var(--accent-blue); flex-shrink: 0;
+    }
+    .checklist-text .en { font-size: 13px; color: var(--text-primary); }
+    .checklist-text .pt { font-size: 12px; color: var(--text-muted); }
+
+    /* --- Sessions --- */
+    .day-header {
+      font-size: 20px; font-weight: 800; margin: 28px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-blue);
+    }
+    .session-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-bottom: 10px;
+      transition: all .2s;
+    }
+    .session-card:hover { border-color: var(--accent-purple); background: var(--bg-card-hover); }
+    .session-card.keynote {
+      border-color: rgba(124,58,237,0.4);
+      background: rgba(124,58,237,0.08);
+    }
+    .session-time { font-size: 12px; color: var(--accent-teal); font-weight: 600; margin-bottom: 3px; }
+    .session-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .session-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+    .session-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-size: 10px; font-weight: 600;
+    }
+    .tag-hc { background: rgba(16,185,129,0.15); color: var(--accent-green); }
+    .tag-ls { background: rgba(124,58,237,0.15); color: #a78bfa; }
+    .tag-keynote { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .tag-workshop { background: rgba(244,63,94,0.15); color: #fb7185; }
+    .tag-roundtable { background: rgba(6,182,212,0.15); color: var(--accent-teal); }
+
+    .track-toggle {
+      display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;
+    }
+    .track-btn {
+      padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color);
+      background: transparent; color: var(--text-secondary); font-size: 12px; font-weight: 600;
+      cursor: pointer; transition: all .2s; font-family: inherit;
+    }
+    .track-btn.active, .track-btn:hover {
+      background: var(--accent-blue); color: white; border-color: var(--accent-blue);
+    }
+    .track-btn[data-track="ls"].active, .track-btn[data-track="ls"]:hover {
+      background: var(--accent-purple); border-color: var(--accent-purple);
+    }
+
+    /* --- Tips cards --- */
+    .tip-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+    .tip-group h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+    .tip-item { padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 13px; color: var(--text-secondary); }
+    .tip-item:last-child { border-bottom: none; }
+    .tip-item strong { color: var(--text-primary); }
+
+    /* --- Maps --- */
+    .map-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+    .map-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .map-card p { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+    .map-card .highlight { color: var(--accent-teal); font-weight: 600; }
+
+    /* --- Footer --- */
+    .footer {
+      text-align: center; padding: 40px 20px 24px;
+      font-size: 12px; color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+    }
+    .footer a { color: var(--accent-teal); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-grid { grid-template-columns: 1fr; }
+      .hero { padding: 36px 16px 24px; }
+      .track-toggle { gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home-section">
+    <div class="sparkles">&#10022; &#10022;</div>
+    <div class="badge">Guia HLS &middot; Health &amp; Life Sciences</div>
+    <h1>Dreamforce</h1>
+    <div class="year">2026</div>
+    <div class="subtitle">Powered by Agentforce</div>
+    <p class="desc">
+      Your personalized guide for Healthcare &amp; Life Sciences sessions.<br>
+      <em>Seu guia personalizado para sess&otilde;es de Sa&uacute;de e Ci&ecirc;ncias da Vida.</em>
+    </p>
+    <div class="event-badge">
+      San Francisco &nbsp;&middot;&nbsp; Moscone Center &nbsp;&middot;&nbsp; Sep 15&ndash;17, 2026
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats">
+    <h2>Agenda at a Glance</h2>
+    <p class="sub">Three days. Limitless impact. Your move.<br>Tr&ecirc;s dias. Impacto ilimitado. Sua vez.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">1,600+</div>
+        <div class="stat-label">Breakout sessions<em>Sess&otilde;es para todos os produtos</em></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Visionary &amp; product keynotes<em>Keynotes vision&aacute;rios</em></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Hands-on trainings &amp; demos<em>Treinamentos pr&aacute;ticos</em></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">240+</div>
+        <div class="stat-label">Community roundtables<em>Mesas-redondas com pares</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NAV GRID ===== -->
+  <section class="nav-section" id="nav-grid">
+    <h2>Your Guide</h2>
+    <p class="sub">Seu Guia</p>
+    <div class="nav-grid">
+      <a class="nav-card" onclick="showSection('checklist')">
+        <div class="icon">&#9989;</div>
+        <h3>Checklist</h3>
+        <p>Before you go &middot; Antes de partir</p>
+      </a>
+      <a class="nav-card" onclick="showSection('maps')">
+        <div class="icon">&#128506;&#65039;</div>
+        <h3>DF Maps</h3>
+        <p>Campus map &amp; tips &middot; Mapa e dicas</p>
+      </a>
+      <a class="nav-card" onclick="showSection('sf-city')">
+        <div class="icon">&#127753;</div>
+        <h3>S&atilde;o Francisco</h3>
+        <p>Restaurants &amp; transport &middot; Restaurantes e transporte</p>
+      </a>
+      <a class="nav-card" onclick="showSection('tips')">
+        <div class="icon">&#128161;</div>
+        <h3>General Tips &middot; Dicas Gerais</h3>
+        <p>Tips for BR attendees &middot; Dicas para brasileiros</p>
+      </a>
+      <a class="nav-card" onclick="showSection('sessions')">
+        <div class="icon">&#128197;</div>
+        <h3>Sessions HLS</h3>
+        <p>Healthcare &amp; Life Sciences &middot; 3-day curated agenda &middot; Sep 15&ndash;17</p>
+      </a>
+      <a class="nav-card" onclick="showSection('contacts')">
+        <div class="icon">&#128172;</div>
+        <h3>Contato</h3>
+        <p>Your Salesforce SE &middot; Sua SE Salesforce</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTS ===== -->
+  <section class="section" id="contacts">
+    <div class="section-header">
+      <h2>&#128172; Your Salesforce Contact<span>Seu Contato Salesforce</span></h2>
+    </div>
+    <div class="contact-card">
+      <div class="contact-avatar">RA</div>
+      <div class="contact-info">
+        <h4>Raquel Asaka</h4>
+        <div class="role">Solution Engineer &middot; Health &amp; Life Sciences</div>
+        <a href="https://wa.me/5511999797985" target="_blank">&#128172; WhatsApp</a>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+    </div>
+  </section>
+
+  <!-- ===== CHECKLIST ===== -->
+  <section class="section" id="checklist">
+    <div class="section-header">
+      <div class="overline">Antes de Partir &middot; Before You Leave</div>
+      <h2>Pre-Travel Checklist<span>Checklist de Viagem</span></h2>
+    </div>
+
+    <div class="checklist-group">
+      <h3>&#128706; Documents &amp; Visa &middot; Documentos e Visto</h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Valid US Visa (B1/B2 or applicable)</div><div class="pt">Visto americano v&aacute;lido (B1/B2 ou aplic&aacute;vel)</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Passport valid 6+ months beyond travel dates</div><div class="pt">Passaporte v&aacute;lido por 6+ meses al&eacute;m das datas</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Dreamforce registration confirmation email</div><div class="pt">E-mail de confirma&ccedil;&atilde;o do registro no Dreamforce</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Download <strong>Salesforce Events</strong> app (iOS &amp; Android)</div><div class="pt">Baixar o app <strong>Salesforce Events</strong></div></div></div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>&#127780;&#65039; Weather &amp; Packing &middot; Clima e Mala</h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Pack layers &mdash; SF September is 14&ndash;22&deg;C, mornings are cold</div><div class="pt">Leve roupas em camadas &mdash; setembro em SF &eacute; 14&ndash;22&deg;C</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Light jacket for evenings &mdash; fog rolls in fast after sunset</div><div class="pt">Jaqueta leve para as noites &mdash; nevoeiro chega r&aacute;pido</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Comfortable walking shoes &mdash; expect 15,000+ steps/day</div><div class="pt">Sapatos confort&aacute;veis &mdash; espere 15.000+ passos/dia</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">US power adapter (Type A/B) + portable power bank</div><div class="pt">Adaptador de tomada americano + carregador port&aacute;til</div></div></div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>&#9992;&#65039; Travel &amp; Logistics &middot; Viagem e Log&iacute;stica</h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Hotel booked near Moscone Center (SoMa district)</div><div class="pt">Hotel reservado pr&oacute;ximo ao Moscone Center (SoMa)</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Download Uber or Lyft with US payment method</div><div class="pt">Baixar Uber ou Lyft com pagamento americano</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">International roaming plan or US SIM card</div><div class="pt">Plano de roaming ou chip americano</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Notify your bank of international travel</div><div class="pt">Avisar o banco sobre viagem internacional</div></div></div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>&#127919; Event Preparation &middot; Prepara&ccedil;&atilde;o</h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Add sessions to agenda in <strong>Salesforce Events</strong> app &mdash; capacity fills fast</div><div class="pt">Adicione sess&otilde;es no app &mdash; vagas enchem r&aacute;pido</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Confirm executive meeting times with your Salesforce team</div><div class="pt">Confirme hor&aacute;rios de reuni&otilde;es executivas</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Bring business cards (digital or physical)</div><div class="pt">Leve cart&otilde;es de visita</div></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Review the HLS sessions tab in this guide</div><div class="pt">Revise as sess&otilde;es HLS recomendadas neste guia</div></div></div>
+    </div>
+
+    <div style="text-align:center;">
+      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+    </div>
+  </section>
+
+  <!-- ===== MAPS ===== -->
+  <section class="section" id="maps">
+    <div class="section-header">
+      <div class="overline">Orienta&ccedil;&atilde;o no Evento &middot; Event Navigation</div>
+      <h2>DF Maps &amp; Campus<span>Mapas e Campus</span></h2>
+    </div>
+
+    <div class="map-card">
+      <h3>&#127963;&#65039; Moscone Center &mdash; 3 buildings</h3>
+      <p><strong>Moscone West</strong> &mdash; Main keynotes, breakout sessions, most HLS content. <span class="highlight">Floors L2 &amp; L3 are key for Health sessions.</span></p>
+      <p><strong>Moscone South</strong> &mdash; Content Pavilion, expo hall, theater sessions.</p>
+      <p><strong>Moscone North</strong> &mdash; Campground (hands-on demos, theaters, Industries Pavilion).</p>
+      <p><strong>Metreon AMC</strong> &mdash; Across the street from Moscone. Theaters 7, 13, 14 host several HLS breakouts.</p>
+      <p><strong>Intercontinental</strong> &mdash; Roundtables (Union Square L3, Ballroom L5).</p>
+    </div>
+
+    <div class="map-card">
+      <h3>&#128161; Navigation Tips</h3>
+      <p><strong>Allow 10&ndash;15 min</strong> to walk between buildings &mdash; sessions fill up, arrive early.</p>
+      <p><strong>Registration:</strong> Pick up your badge at Moscone West, Howard St entrance.</p>
+      <p><strong>Salesforce Events app</strong> has real-time indoor maps &amp; wayfinding.</p>
+      <p><strong>Health &amp; Life Sciences hub:</strong> Look for the Industries Pavilion at Moscone North Campground.</p>
+    </div>
+
+    <div style="text-align:center;">
+      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+    </div>
+  </section>
+
+  <!-- ===== SAO FRANCISCO ===== -->
+  <section class="section" id="sf-city">
+    <div class="section-header">
+      <h2>&#127753; S&atilde;o Francisco<span>Restaurants &amp; Transport</span></h2>
+    </div>
+
+    <div class="tip-group">
+      <h3>&#127861; Restaurants near Moscone</h3>
+      <div class="tip-item"><strong>The Cavalier</strong> &mdash; Hotel Zeppelin, upscale British brasserie. Great for team dinners.</div>
+      <div class="tip-item"><strong>Amber India</strong> &mdash; SoMa, Indian fine dining. Quick lunch option.</div>
+      <div class="tip-item"><strong>Tropisue&ntilde;o</strong> &mdash; Latin American, walking distance from Moscone.</div>
+      <div class="tip-item"><strong>The Bird</strong> &mdash; Best fried chicken sandwiches in SoMa. Fast &amp; casual.</div>
+      <div class="tip-item"><strong>Super Duper Burgers</strong> &mdash; Organic burgers, multiple SF locations.</div>
+      <div class="tip-item"><strong>Tartine Manufactory</strong> &mdash; Bakery &amp; caf&eacute;, perfect for breakfast/brunch.</div>
+    </div>
+
+    <div class="tip-group">
+      <h3>&#128652; Transport</h3>
+      <div class="tip-item"><strong>From SFO to downtown:</strong> BART ($9.65, ~30min) or Uber/Lyft (~$30&ndash;50).</div>
+      <div class="tip-item"><strong>Around the city:</strong> Uber/Lyft is the easiest. MUNI for longer distances.</div>
+      <div class="tip-item"><strong>Walking:</strong> Moscone to Union Square ~12min. Most hotels are walkable.</div>
+      <div class="tip-item"><strong>Tip:</strong> Avoid driving &mdash; parking is $40&ndash;60/day near Moscone.</div>
+    </div>
+
+    <div class="tip-group">
+      <h3>&#127774; Must-see (if you have free time)</h3>
+      <div class="tip-item"><strong>Golden Gate Bridge</strong> &mdash; Uber to Battery Spencer for the best viewpoint.</div>
+      <div class="tip-item"><strong>Fisherman&rsquo;s Wharf</strong> &mdash; Touristy but fun. Clam chowder in a bread bowl.</div>
+      <div class="tip-item"><strong>Mission District</strong> &mdash; Best murals, tacos, and coffee in SF.</div>
+      <div class="tip-item"><strong>Chinatown</strong> &mdash; Oldest in North America. Great for a quick walk.</div>
+    </div>
+
+    <div style="text-align:center;">
+      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+    </div>
+  </section>
+
+  <!-- ===== GENERAL TIPS ===== -->
+  <section class="section" id="tips">
+    <div class="section-header">
+      <h2>&#128161; General Tips<span>Dicas Gerais para Brasileiros</span></h2>
+    </div>
+
+    <div class="tip-group">
+      <h3>&#127463;&#127479; Dicas para quem vem do Brasil</h3>
+      <div class="tip-item"><strong>Fuso hor&aacute;rio:</strong> SF &eacute; GMT-7 (4h atr&aacute;s de Bras&iacute;lia). Chegue 1 dia antes para adaptar.</div>
+      <div class="tip-item"><strong>Gorjeta:</strong> 18&ndash;20% em restaurantes, sempre. J&aacute; inclua no or&ccedil;amento.</div>
+      <div class="tip-item"><strong>Chip americano:</strong> Compre um eSIM antes (Airalo, Holafly) ou chip na T-Mobile ao chegar.</div>
+      <div class="tip-item"><strong>Cart&atilde;o:</strong> Cart&atilde;o internacional sem IOF (Wise, C6 Global, Inter) &eacute; melhor que câmbio.</div>
+      <div class="tip-item"><strong>Clima:</strong> SF em setembro parece outono &mdash; n&atilde;o &eacute; o &ldquo;calor da Calif&oacute;rnia&rdquo; que voc&ecirc; imagina.</div>
+    </div>
+
+    <div class="tip-group">
+      <h3>&#127919; Dicas para o Dreamforce</h3>
+      <div class="tip-item"><strong>Chegue cedo:</strong> Sess&otilde;es populares lotam. Filas de 15&ndash;20min s&atilde;o comuns.</div>
+      <div class="tip-item"><strong>App Salesforce Events:</strong> Adicione sess&otilde;es &agrave; sua agenda com anteced&ecirc;ncia.</div>
+      <div class="tip-item"><strong>Networking:</strong> Converse nas filas &mdash; todo mundo est&aacute; aberto. Traga cart&otilde;es.</div>
+      <div class="tip-item"><strong>Carregador port&aacute;til:</strong> Obrigat&oacute;rio. Seu celular vai descarregar r&aacute;pido com tanto uso do app.</div>
+      <div class="tip-item"><strong>Sapato confort&aacute;vel:</strong> S&eacute;rio. S&atilde;o 15.000+ passos por dia entre pr&eacute;dios.</div>
+    </div>
+
+    <div style="text-align:center;">
+      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+    </div>
+  </section>
+
+  <!-- ===== SESSIONS ===== -->
+  <section class="section" id="sessions">
+    <div class="section-header">
+      <div class="overline">Curated Agenda &middot; Agenda Curada</div>
+      <h2>&#128197; Sessions HLS<span>Healthcare &amp; Life Sciences &middot; Sep 15&ndash;17</span></h2>
+    </div>
+
+    <div class="track-toggle">
+      <button class="track-btn active" data-track="all" onclick="filterTrack('all')">All Sessions</button>
+      <button class="track-btn" data-track="hc" onclick="filterTrack('hc')">&#129657; Healthcare</button>
+      <button class="track-btn" data-track="ls" onclick="filterTrack('ls')">&#129516; Life Sciences</button>
+    </div>
+
+    <!-- ===== TUESDAY ===== -->
+    <div class="day-header">Tuesday, Sep 15 &middot; Ter&ccedil;a-feira</div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">1:00 &ndash; 1:40 PM</div>
+      <div class="session-title">Agentforce Health Roadmap: Driving Healthier Outcomes</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3024</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">1:30 &ndash; 1:50 PM</div>
+      <div class="session-title">Transforming Care Management at Scale with Agentforce Health</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Apps Theater</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls keynote">
+      <div class="session-time">2:00 &ndash; 2:50 PM</div>
+      <div class="session-title">Life Sciences Keynote: Rewriting the Script with Agentforce 360</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Keynote Room</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">2:30 &ndash; 3:30 PM</div>
+      <div class="session-title">Agentforce for Health: Proof to Production</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Room 2008</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag tag-workshop">Workshop</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">3:00 &ndash; 3:20 PM</div>
+      <div class="session-title">Transform Health Ops and Protect Margins with Agentforce</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone North, Campground, Theater 1</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">3:30 &ndash; 3:50 PM</div>
+      <div class="session-title">Speed Up Access for Patient Services and FRMs</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone North, Campground, Industries Pavilion</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+      </div>
+    </div>
+
+    <!-- ===== WEDNESDAY ===== -->
+    <div class="day-header">Wednesday, Sep 16 &middot; Quarta-feira</div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">8:30 &ndash; 9:20 AM</div>
+      <div class="session-title">Agentforce Life Sciences Roadmap</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theater 13</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card keynote" data-track="hc">
+      <div class="session-time">10:45 &ndash; 11:35 AM &nbsp; &#11088; Keynote</div>
+      <div class="session-title">Health Keynote: Reconnecting Humans to Health</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Keynote Room</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">11:30 AM &ndash; 12:10 PM</div>
+      <div class="session-title">The Agentic Pharma Playbook: AI for the Entire Value Chain</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theater 13</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">12:00 &ndash; 1:00 PM</div>
+      <div class="session-title">From Chaos to Compliance: Transforming Regulated Content</div>
+      <div class="session-meta">
+        <span>&#128205; Intercontinental, L3, Union Square, Roundtable 6</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag tag-roundtable">Roundtable</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">12:30 &ndash; 1:10 PM</div>
+      <div class="session-title">From Pilot to Production with Agentforce in Healthcare</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theater 13</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">12:30 &ndash; 12:50 PM</div>
+      <div class="session-title">Architect Agent-Ready Infrastructure for Payers</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, LL, Content Pavilion, Stage 8</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-teal)">Theater</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">1:30 &ndash; 2:10 PM</div>
+      <div class="session-title">Unified Data, Smarter Agents, Healthier Outcomes</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theater 7</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">3:00 &ndash; 4:00 PM</div>
+      <div class="session-title">Best Practices for Deploying Agentforce in Life Sciences</div>
+      <div class="session-meta">
+        <span>&#128205; Intercontinental, L5, Ballroom A, Roundtable 8</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag tag-roundtable">Roundtable</span>
+      </div>
+    </div>
+
+    <!-- ===== THURSDAY ===== -->
+    <div class="day-header">Thursday, Sep 17 &middot; Quinta-feira</div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">8:30 &ndash; 9:30 AM</div>
+      <div class="session-title">Agentforce for Life Sciences: Proof to Production</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Room 2010</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag tag-workshop">Workshop</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">10:30 &ndash; 11:10 AM</div>
+      <div class="session-title">How Our Most Innovative Payers are Winning with Agentforce</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, Theater 13</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">10:30 &ndash; 11:10 AM</div>
+      <div class="session-title">Building the Agentic MedTech Enterprise</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theater 13</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">1:00 &ndash; 1:40 PM</div>
+      <div class="session-title">Clinical Command Center: Unifying Sponsors and Sites with AI</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theater 14</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="hc">
+      <div class="session-time">2:30 &ndash; 3:10 PM</div>
+      <div class="session-title">Scale Personalized Service at CVS with Agentforce</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3018</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div class="session-card" data-track="ls">
+      <div class="session-time">2:30 &ndash; 3:10 PM</div>
+      <div class="session-title">Agentforce Life Sciences Roadmap</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3018</span>
+        <span class="session-tag tag-ls">Life Sciences</span>
+        <span class="session-tag" style="background:rgba(1,118,211,0.15);color:var(--accent-blue)">Breakout</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 24px;">
+      <p style="font-size:13px; color:var(--text-muted);">
+        &#128204; Add sessions to your agenda in the <strong style="color:var(--text-secondary)">Salesforce Events</strong> app &mdash; capacity fills fast!<br>
+        Adicione as sess&otilde;es no app &mdash; vagas enchem r&aacute;pido!
+      </p>
+      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    Made with &#10084;&#65039; for HLS customers by <strong>Raquel Asaka</strong> &middot; Salesforce<br>
+    Dreamforce 2026 &middot; San Francisco &middot; Sep 15&ndash;17
+  </div>
+
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  if (id === 'home') {
+    document.getElementById('home-section').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.add('active');
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function filterTrack(track) {
+  document.querySelectorAll('.track-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.track-btn[data-track="${track}"]`).classList.add('active');
+  document.querySelectorAll('.session-card').forEach(card => {
+    if (track === 'all') {
+      card.style.display = '';
+    } else {
+      card.style.display = card.dataset.track.includes(track) ? '' : 'none';
+    }
+  });
+}
+
+// Persist checklist state
+document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach((cb, i) => {
+  const key = 'df26hls_' + i;
+  if (localStorage.getItem(key) === 'true') cb.checked = true;
+  cb.addEventListener('change', () => localStorage.setItem(key, cb.checked));
+});
+
+// Handle direct anchor links
+if (location.hash) {
+  const target = location.hash.replace('#','');
+  setTimeout(() => showSection(target), 300);
+}
+</script>
+
+</body>
+</html>
