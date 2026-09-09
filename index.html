@@ -282,6 +282,11 @@
     .tag-keynote { background: rgba(245,158,11,0.12); color: #d97706; }
     .tag-workshop { background: rgba(244,63,94,0.1); color: #e11d48; }
     .tag-roundtable { background: rgba(6,182,212,0.1); color: #0891b2; }
+    .tag-br { background: rgba(34,197,94,0.12); color: #15803d; }
+    .tag-af { background: rgba(99,102,241,0.1); color: #4f46e5; }
+    .tag-d3 { background: rgba(236,72,153,0.1); color: #db2777; }
+    .tag-mk { background: rgba(245,158,11,0.1); color: #d97706; }
+    .tag-pl { background: rgba(59,130,246,0.1); color: #2563eb; }
 
     .track-toggle {
       display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;
@@ -296,6 +301,21 @@
     }
     .track-btn[data-track="ls"].active, .track-btn[data-track="ls"]:hover {
       background: var(--accent-purple); border-color: var(--accent-purple);
+    }
+    .track-btn[data-track="br"].active, .track-btn[data-track="br"]:hover {
+      background: #15803d; border-color: #15803d;
+    }
+    .track-btn[data-track="af"].active, .track-btn[data-track="af"]:hover {
+      background: #4f46e5; border-color: #4f46e5;
+    }
+    .track-btn[data-track="d3"].active, .track-btn[data-track="d3"]:hover {
+      background: #db2777; border-color: #db2777;
+    }
+    .track-btn[data-track="mk"].active, .track-btn[data-track="mk"]:hover {
+      background: #d97706; border-color: #d97706;
+    }
+    .track-btn[data-track="pl"].active, .track-btn[data-track="pl"]:hover {
+      background: #2563eb; border-color: #2563eb;
     }
 
     /* --- Tips cards --- */
@@ -493,13 +513,34 @@
       <h2>DF Maps &amp; Campus<span>Mapas e Campus</span></h2>
     </div>
 
+    <div class="map-card" style="text-align:center; padding:16px;">
+      <img src="https://images.contentstack.io/v3/assets/blt11ae8e46c5400345/blt6e62e84068df77ff/683db6f67e3bf54f16aac0a3/Campus_Map_-_2025_-_Dreamforce.png" alt="Dreamforce 2026 Campus Map" style="width:100%; max-width:800px; border-radius:12px; margin-bottom:14px;">
+      <div>
+        <a href="https://www.google.com/maps/place/Moscone+Center/@37.7842,-122.4016,16z" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 20px;background:var(--accent-blue);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">&#128205; Open in Google Maps</a>
+      </div>
+    </div>
+
     <div class="map-card">
-      <h3>&#127963;&#65039; Moscone Center &mdash; 3 buildings</h3>
-      <p><strong>Moscone West</strong> &mdash; Main keynotes, breakout sessions, most HLS content. <span class="highlight">Floors L2 &amp; L3 are key for Health sessions.</span></p>
-      <p><strong>Moscone South</strong> &mdash; Content Pavilion, expo hall, theater sessions.</p>
-      <p><strong>Moscone North</strong> &mdash; Campground (hands-on demos, theaters, Industries Pavilion).</p>
-      <p><strong>Metreon AMC</strong> &mdash; Across the street from Moscone. Theaters 7, 13, 14 host several HLS breakouts.</p>
-      <p><strong>Intercontinental</strong> &mdash; Roundtables (Union Square L3, Ballroom L5).</p>
+      <h3>&#128205; Venue Legend &mdash; Dreamforce 2026 Campus</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:12px;font-size:13px;">
+        <div><strong style="color:var(--accent-blue)">1</strong> &nbsp;<strong>AMC / Metreon</strong><br><span style="color:var(--text-muted)">Breakout Sessions &middot; F&amp;B</span></div>
+        <div><strong style="color:var(--accent-blue)">2</strong> &nbsp;<strong>City View</strong><br><span style="color:var(--text-muted)">International Lounge (LATAM)</span></div>
+        <div><strong style="color:var(--accent-blue)">3</strong> &nbsp;<strong>Howard St.</strong><br><span style="color:var(--text-muted)">Dreampark</span></div>
+        <div><strong style="color:var(--accent-blue)">4</strong> &nbsp;<strong>InterContinental Hotel</strong><br><span style="color:var(--text-muted)">Invite-only roundtables</span></div>
+        <div><strong style="color:var(--accent-blue)">5</strong> &nbsp;<strong>Marriott Marquis</strong><br><span style="color:var(--text-muted)">Training &middot; Customer Success &middot; Partner Lounge</span></div>
+        <div><strong style="color:var(--accent-blue)">6</strong> &nbsp;<strong>Moscone North</strong><br><span style="color:var(--text-muted)">Dreamstore &middot; Campground &amp; Agentic Enterprise</span></div>
+        <div><strong style="color:var(--accent-blue)">7</strong> &nbsp;<strong>Moscone South</strong><br><span style="color:var(--text-muted)">Keynote + Breakouts &middot; Executive Meeting Suite</span></div>
+        <div><strong style="color:var(--accent-blue)">8</strong> &nbsp;<strong>Moscone West</strong><br><span style="color:var(--text-muted)">Registration &middot; Trailblazer Forest &middot; Keynotes</span></div>
+        <div><strong style="color:var(--accent-blue)">9</strong> &nbsp;<strong>SF MoMA</strong><br><span style="color:var(--text-muted)">Sponsor Activations / Events</span></div>
+        <div><strong style="color:var(--accent-blue)">10</strong> &nbsp;<strong>St. Regis Hotel</strong><br><span style="color:var(--text-muted)">CXO Program</span></div>
+        <div><strong style="color:var(--accent-blue)">11</strong> &nbsp;<strong>W San Francisco</strong><br><span style="color:var(--text-muted)">Public Sector Lounge</span></div>
+        <div><strong style="color:var(--accent-blue)">12</strong> &nbsp;<strong>Yerba Buena Forum</strong><br><span style="color:var(--text-muted)">Mindfulness Meadow</span></div>
+        <div><strong style="color:var(--accent-blue)">13</strong> &nbsp;<strong>Yerba Buena Gardens</strong><br><span style="color:var(--text-muted)">F&amp;B</span></div>
+        <div><strong style="color:var(--accent-blue)">14</strong> &nbsp;<strong>Blue Shield / YBCA</strong><br><span style="color:var(--text-muted)">Keynote Sessions</span></div>
+        <div><strong style="color:var(--accent-blue)">15</strong> &nbsp;<strong>Contemporary Jewish Museum</strong><br><span style="color:var(--text-muted)">Dreamforce Lounges</span></div>
+        <div><strong style="color:var(--accent-blue)">16</strong> &nbsp;<strong>Jessie Square</strong><br><span style="color:var(--text-muted)">F&amp;B</span></div>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:12px;">Not pictured: Salesforce Tower &middot; Oracle Park (Dreamfest)</p>
     </div>
 
     <div class="map-card">
@@ -508,6 +549,7 @@
       <p><strong>Registration:</strong> Pick up your badge at Moscone West, Howard St entrance.</p>
       <p><strong>Salesforce Events app</strong> has real-time indoor maps &amp; wayfinding.</p>
       <p><strong>Health &amp; Life Sciences hub:</strong> Look for the Industries Pavilion at Moscone North Campground.</p>
+      <p><strong>LATAM Lounge:</strong> City View (venue #2) &mdash; ponto de encontro para a comunidade brasileira.</p>
     </div>
 
     <div style="text-align:center;">
@@ -523,12 +565,12 @@
 
     <div class="tip-group">
       <h3>&#127861; Restaurants near Moscone</h3>
-      <div class="tip-item"><strong>The Cavalier</strong> &mdash; Hotel Zeppelin, upscale British brasserie. Great for team dinners.</div>
-      <div class="tip-item"><strong>Amber India</strong> &mdash; SoMa, Indian fine dining. Quick lunch option.</div>
-      <div class="tip-item"><strong>Tropisue&ntilde;o</strong> &mdash; Latin American, walking distance from Moscone.</div>
-      <div class="tip-item"><strong>The Bird</strong> &mdash; Best fried chicken sandwiches in SoMa. Fast &amp; casual.</div>
-      <div class="tip-item"><strong>Super Duper Burgers</strong> &mdash; Organic burgers, multiple SF locations.</div>
-      <div class="tip-item"><strong>Tartine Manufactory</strong> &mdash; Bakery &amp; caf&eacute;, perfect for breakfast/brunch.</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/The+Cavalier/@37.7858,-122.4063,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">The Cavalier</a></strong> &mdash; Hotel Zeppelin, upscale British brasserie. Great for team dinners.</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Amber+India+Restaurant/@37.7851,-122.3999,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Amber India</a></strong> &mdash; SoMa, Indian fine dining. Quick lunch option.</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Tropisue%C3%B1o/@37.7836,-122.3995,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Tropisue&ntilde;o</a></strong> &mdash; Latin American, walking distance from Moscone.</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/The+Bird/@37.7838,-122.3988,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">The Bird</a></strong> &mdash; Best fried chicken sandwiches in SoMa. Fast &amp; casual.</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Super+Duper+Burgers/@37.7855,-122.4001,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Super Duper Burgers</a></strong> &mdash; Organic burgers, multiple SF locations.</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Tartine+Manufactory/@37.7614,-122.4195,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Tartine Manufactory</a></strong> &mdash; Bakery &amp; caf&eacute;, perfect for breakfast/brunch.</div>
     </div>
 
     <div class="tip-group">
@@ -589,9 +631,14 @@
     </div>
 
     <div class="track-toggle">
-      <button class="track-btn active" data-track="all" onclick="filterTrack('all')">All Sessions</button>
-      <button class="track-btn" data-track="hc" onclick="filterTrack('hc')">&#129657; Healthcare</button>
-      <button class="track-btn" data-track="ls" onclick="filterTrack('ls')">&#129516; Life Sciences</button>
+      <button class="track-btn active" data-track="all" onclick="filterTrack('all')">All</button>
+      <button class="track-btn" data-track="hc" onclick="filterTrack('hc')">Healthcare</button>
+      <button class="track-btn" data-track="ls" onclick="filterTrack('ls')">Life Sciences</button>
+      <button class="track-btn" data-track="br" onclick="filterTrack('br')">&#127463;&#127479; Brasil</button>
+      <button class="track-btn" data-track="af" onclick="filterTrack('af')">AIforce</button>
+      <button class="track-btn" data-track="d3" onclick="filterTrack('d3')">Data 360</button>
+      <button class="track-btn" data-track="mk" onclick="filterTrack('mk')">Marketing</button>
+      <button class="track-btn" data-track="pl" onclick="filterTrack('pl')">Platform</button>
     </div>
 
     <!-- ===== TUESDAY ===== -->
@@ -823,7 +870,234 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839142907001GNBx" target="_blank">View in catalog &rarr;</a>
     </div>
 
+    <!-- ===== BRASIL HIGHLIGHT ===== -->
+    <div class="day-header" style="border-color:#15803d;">&#127463;&#127479; Brasil &amp; LATAM Sessions</div>
+
+    <div class="session-card" data-track="br">
+      <div class="session-time">Thu Sep 17 &middot; 2:30 &ndash; 2:50 PM</div>
+      <div class="session-title">Beyond the Screen: How Globo Connects Millions with CRM &amp; AI</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Theater 17</span>
+        <span class="session-tag tag-br">Brasil</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Theater</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838697602001GCtG" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="br">
+      <div class="session-time">Thu Sep 17 &middot; 12:30 &ndash; 1:15 PM</div>
+      <div class="session-title">Meetup: LATAM Community</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Community Networking 1</span>
+        <span class="session-tag tag-br">LATAM</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Networking</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779882483332001DFqo" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <!-- ===== AIFORCE / HEADLESS ===== -->
+    <div class="day-header" style="border-color:#4f46e5;">AIforce (Headless)</div>
+
+    <div class="session-card" data-track="af">
+      <div class="session-time">Wed Sep 16 &middot; 2:10 &ndash; 3:00 PM</div>
+      <div class="session-title">AIforce Keynote: Anywhere Humans and Agents Work</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, LL, Keynote Hall A</span>
+        <span class="session-tag tag-af">AIforce</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781726973233001l5xc" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="af">
+      <div class="session-time">Tue Sep 15 &middot; 3:30 PM &amp; Wed 4:30 PM</div>
+      <div class="session-title">How Salesforce Builds Headless Agents With AIforce</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone North, Campground, Theater 3</span>
+        <span class="session-tag tag-af">AIforce</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Theater</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779917426918001bmXd" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="af">
+      <div class="session-time">Tue Sep 15 &middot; 2:00 &ndash; 2:40 PM</div>
+      <div class="session-title">Intro to AIforce for Admins</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3024</span>
+        <span class="session-tag tag-af">AIforce</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839214152001GbWP" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="af">
+      <div class="session-time">Wed Sep 16 &middot; 12:00 &ndash; 12:40 PM</div>
+      <div class="session-title">Build Browserless Experiences With Salesforce AIforce</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3024</span>
+        <span class="session-tag tag-af">AIforce</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779919722012001MIcZ" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="af">
+      <div class="session-time">Wed Sep 16 &middot; 4:30 PM</div>
+      <div class="session-title">Unify Agent Experiences with the Headless Experience Layer</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L1 Forest, Admin Meadow</span>
+        <span class="session-tag tag-af">AIforce</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Theater</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1780092543759001EHZC" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="af hc">
+      <div class="session-time">Wed Sep 16 &middot; 3:00 &ndash; 4:00 PM</div>
+      <div class="session-title">Beyond the Browser: AIforce for Health &amp; Life Sciences</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Room 2008</span>
+        <span class="session-tag tag-af">AIforce</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag tag-workshop">Workshop</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839173577001GpfR" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <!-- ===== DATA 360 ===== -->
+    <div class="day-header" style="border-color:#db2777;">Data 360</div>
+
+    <div class="session-card" data-track="d3">
+      <div class="session-time">Wed Sep 16 &middot; 3:45 &ndash; 4:35 PM</div>
+      <div class="session-title">Data 360 Keynote: Context Is Your AI Advantage</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Keynote Room 3001</span>
+        <span class="session-tag tag-d3">Data 360</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781726974670001ltzf" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="d3">
+      <div class="session-time">Wed Sep 16 &middot; 11:00 &ndash; 11:40 AM</div>
+      <div class="session-title">Data 360 Roadmap: Activating Trusted Context Everywhere</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, Content Pavilion, Stage 5</span>
+        <span class="session-tag tag-d3">Data 360</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838806673001GiuC" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="d3">
+      <div class="session-time">Tue Sep 15 &middot; 2:00 &ndash; 2:40 PM</div>
+      <div class="session-title">How Salesforce Builds Smarter Agents with Data 360</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3020</span>
+        <span class="session-tag tag-d3">Data 360</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779476134124001Hzgc" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="d3 hc">
+      <div class="session-time">Thu Sep 17 &middot; 12:00 &ndash; 12:20 PM</div>
+      <div class="session-title">Governing AI at Scale: CVS Health's Data 360 COE</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, Content Pavilion, Stage 6</span>
+        <span class="session-tag tag-d3">Data 360</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779905188093001kv4p" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="d3">
+      <div class="session-time">Wed Sep 16 &middot; 2:00 &ndash; 2:40 PM</div>
+      <div class="session-title">Build Trusted Data for Agentforce with Data 360</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3024</span>
+        <span class="session-tag tag-d3">Data 360</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1780244584631001W1aH" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <!-- ===== MARKETING ===== -->
+    <div class="day-header" style="border-color:#d97706;">Marketing</div>
+
+    <div class="session-card" data-track="mk">
+      <div class="session-time">Tue Sep 15 &middot; 3:00 PM &amp; Wed 1:30 PM</div>
+      <div class="session-title">Natural Language Marketing: Getting Started with Headless</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West L2 / Moscone South Stage 6</span>
+        <span class="session-tag tag-mk">Marketing</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Theater</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838906484001GS9Q" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="mk d3">
+      <div class="session-time">Wed Sep 16 &middot; 11:00 AM</div>
+      <div class="session-title">Inside Salesforce: How We Use Data 360 for Marketing</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, Content Pavilion, Stage 6</span>
+        <span class="session-tag tag-mk">Marketing</span>
+        <span class="session-tag tag-d3">Data 360</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838818992001G8dP" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <!-- ===== PLATFORM ===== -->
+    <div class="day-header" style="border-color:#2563eb;">Platform &amp; Agentforce</div>
+
+    <div class="session-card" data-track="pl">
+      <div class="session-time">Tue Sep 15 &middot; 12:30 PM</div>
+      <div class="session-title">Extend Agentforce with MCP and External Tools</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Learning Lab Theater A</span>
+        <span class="session-tag tag-pl">Platform</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Theater</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1780009055465001bQVG" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="pl af">
+      <div class="session-time">Wed Sep 16 &middot; 1:30 PM &amp; Thu 12:30 PM</div>
+      <div class="session-title">10 Agent Architecture Patterns from Salesforce AIforce</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L1 Forest, Architect Vista</span>
+        <span class="session-tag tag-pl">Platform</span>
+        <span class="session-tag tag-af">AIforce</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779640198713001P7QT" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="pl">
+      <div class="session-time">Tue Sep 15 &middot; 1:00 PM</div>
+      <div class="session-title">Scaled Trusted Insights with Headless Analytics (Tableau MCP)</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Room 3018</span>
+        <span class="session-tag tag-pl">Platform</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838859856001GeKd" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-track="pl af">
+      <div class="session-time">Wed Sep 16 &middot; 4:30 PM</div>
+      <div class="session-title">Orchestrate AI with MuleSoft Agent Fabric Plus AIforce</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Theater 17</span>
+        <span class="session-tag tag-pl">Platform</span>
+        <span class="session-tag tag-af">AIforce</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838655678001GR8m" target="_blank">View in catalog &rarr;</a>
+    </div>
+
     <div style="text-align:center; margin-top: 24px;">
+      <a href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:var(--accent-blue);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-bottom:12px;">&#128197; Browse All Sessions in the Official Catalog</a>
       <p style="font-size:13px; color:var(--text-muted);">
         &#128204; Add sessions to your agenda in the <strong style="color:var(--text-secondary)">Salesforce Events</strong> app &mdash; capacity fills fast!<br>
         Adicione as sess&otilde;es no app &mdash; vagas enchem r&aacute;pido!
@@ -863,6 +1137,16 @@ function filterTrack(track) {
     } else {
       card.style.display = card.dataset.track.includes(track) ? '' : 'none';
     }
+  });
+  document.querySelectorAll('.day-header').forEach(h => {
+    if (track === 'all') { h.style.display = ''; return; }
+    let next = h.nextElementSibling;
+    let hasVisible = false;
+    while (next && !next.classList.contains('day-header')) {
+      if (next.classList.contains('session-card') && next.style.display !== 'none') hasVisible = true;
+      next = next.nextElementSibling;
+    }
+    h.style.display = hasVisible ? '' : 'none';
   });
 }
 
