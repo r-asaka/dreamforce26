@@ -189,7 +189,7 @@
       text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;
     }
     .section-header h2 { font-size: 28px; font-weight: 800; }
-    .section-header h2 span { font-size: 18px; color: var(--text-secondary); font-weight: 500; display: block; margin-top: 4px; }
+    .section-header h2 .subtitle { font-size: 18px; color: var(--text-secondary); font-weight: 500; display: block; margin-top: 4px; }
 
     .back-link {
       display: inline-flex; align-items: center; gap: 6px;
@@ -240,8 +240,7 @@
       width: 17px; height: 17px; margin-top: 3px;
       accent-color: var(--accent-blue); flex-shrink: 0;
     }
-    .checklist-text .en { font-size: 13px; color: var(--accent-navy); }
-    .checklist-text .pt { font-size: 12px; color: var(--text-muted); }
+    .checklist-text { font-size: 13px; color: var(--accent-navy); }
 
     /* --- Sessions --- */
     .day-header {
@@ -381,9 +380,9 @@
     .day-btn:hover:not(.active) { border-color: var(--accent-blue); color: var(--accent-blue); }
 
     /* --- i18n --- */
-    [data-lang="en"] { display: none; }
-    body.lang-en [data-lang="en"] { display: inline; }
-    body.lang-en [data-lang="pt"] { display: none; }
+    [data-lang="en"] { display: none !important; }
+    body.lang-en [data-lang="en"] { display: inline !important; }
+    body.lang-en [data-lang="pt"] { display: none !important; }
 
     @media (max-width: 600px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -421,23 +420,23 @@
   <!-- ===== STATS ===== -->
   <section class="stats">
     <h2>Agenda at a Glance</h2>
-    <p class="sub">Three days. Limitless impact. Your move.<br>Tr&ecirc;s dias. Impacto ilimitado. Sua vez.</p>
+    <p class="sub"><span data-lang="en">Three days. Limitless impact. Your move.</span><span data-lang="pt">Tr&ecirc;s dias. Impacto ilimitado. Sua vez.</span></p>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-number">1,600+</div>
-        <div class="stat-label">Breakout sessions<em>Sess&otilde;es para todos os produtos</em></div>
+        <div class="stat-label"><span data-lang="en">Breakout sessions</span><span data-lang="pt">Sess&otilde;es para todos os produtos</span></div>
       </div>
       <div class="stat-card">
         <div class="stat-number">50+</div>
-        <div class="stat-label">Visionary &amp; product keynotes<em>Keynotes vision&aacute;rios</em></div>
+        <div class="stat-label"><span data-lang="en">Visionary &amp; product keynotes</span><span data-lang="pt">Keynotes vision&aacute;rios</span></div>
       </div>
       <div class="stat-card">
         <div class="stat-number">150+</div>
-        <div class="stat-label">Hands-on trainings &amp; demos<em>Treinamentos pr&aacute;ticos</em></div>
+        <div class="stat-label"><span data-lang="en">Hands-on trainings &amp; demos</span><span data-lang="pt">Treinamentos pr&aacute;ticos</span></div>
       </div>
       <div class="stat-card">
         <div class="stat-number">240+</div>
-        <div class="stat-label">Community roundtables<em>Mesas-redondas com pares</em></div>
+        <div class="stat-label"><span data-lang="en">Community roundtables</span><span data-lang="pt">Mesas-redondas com pares</span></div>
       </div>
     </div>
   </section>
@@ -464,12 +463,12 @@
       </a>
       <a class="nav-card" onclick="showSection('tips')">
         <div class="icon">&#128161;</div>
-        <h3>General Tips &middot; Dicas Gerais</h3>
+        <h3><span data-lang="en">General Tips</span><span data-lang="pt">Dicas Gerais</span></h3>
         <p><span data-lang="pt">Dicas para brasileiros</span><span data-lang="en">Tips for BR attendees</span></p>
       </a>
       <a class="nav-card" onclick="showSection('sessions')">
         <div class="icon">&#128197;</div>
-        <h3>Sessions HLS</h3>
+        <h3>Sessions</h3>
         <p><span data-lang="pt">Agenda curada de 3 dias &middot; 15&ndash;17 Set</span><span data-lang="en">3-day curated agenda &middot; Sep 15&ndash;17</span></p>
       </a>
       <a class="nav-card" onclick="showSection('contacts')">
@@ -483,7 +482,7 @@
   <!-- ===== CONTACTS ===== -->
   <section class="section" id="contacts">
     <div class="section-header">
-      <h2>&#128172; Your Salesforce Contact<span>Seu Contato Salesforce</span></h2>
+      <h2><span data-lang="en">&#128172; Your Salesforce Contact</span><span data-lang="pt">&#128172; Seu Contato Salesforce</span></h2>
     </div>
     <div class="contact-card">
       <div class="contact-avatar">RA</div>
@@ -501,40 +500,40 @@
   <!-- ===== CHECKLIST ===== -->
   <section class="section" id="checklist">
     <div class="section-header">
-      <div class="overline">Antes de Partir &middot; Before You Leave</div>
-      <h2>Pre-Travel Checklist<span>Checklist de Viagem</span></h2>
+      <div class="overline"><span data-lang="en">Before You Leave</span><span data-lang="pt">Antes de Partir</span></div>
+      <h2><span data-lang="en">Pre-Travel Checklist</span><span data-lang="pt">Checklist de Viagem</span></h2>
     </div>
 
     <div class="checklist-group">
-      <h3>&#128706; Documents &amp; Visa &middot; Documentos e Visto</h3>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Valid US Visa (B1/B2 or applicable)</div><div class="pt">Visto americano v&aacute;lido (B1/B2 ou aplic&aacute;vel)</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Passport valid 6+ months beyond travel dates</div><div class="pt">Passaporte v&aacute;lido por 6+ meses al&eacute;m das datas</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Dreamforce registration confirmation email</div><div class="pt">E-mail de confirma&ccedil;&atilde;o do registro no Dreamforce</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Download <strong>Salesforce Events</strong> app (iOS &amp; Android)</div><div class="pt">Baixar o app <strong>Salesforce Events</strong></div></div></div>
+      <h3>&#128706; <span data-lang="en">Documents &amp; Visa</span><span data-lang="pt">Documentos e Visto</span></h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Valid US Visa (B1/B2 or applicable)</span><span data-lang="pt">Visto americano v&aacute;lido (B1/B2 ou aplic&aacute;vel)</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Passport valid 6+ months beyond travel dates</span><span data-lang="pt">Passaporte v&aacute;lido por 6+ meses al&eacute;m das datas</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Dreamforce registration confirmation email</span><span data-lang="pt">E-mail de confirma&ccedil;&atilde;o do registro no Dreamforce</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en"><span data-lang="en">Download <strong>Salesforce Events</strong> app:</span><span data-lang="pt">Baixar o app <strong>Salesforce Events</strong>:</span> <a href="https://apps.apple.com/us/app/salesforce-events/id1021413071" target="_blank" style="color:var(--accent-blue)">App Store (iOS)</a> &middot; <a href="https://play.google.com/store/apps/details?id=com.salesforce.dreamforce" target="_blank" style="color:var(--accent-blue)">Google Play (Android)</a></div></div></div>
     </div>
 
     <div class="checklist-group">
-      <h3>&#127780;&#65039; Weather &amp; Packing &middot; Clima e Mala</h3>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Pack layers &mdash; SF September is 14&ndash;22&deg;C, mornings are cold</div><div class="pt">Leve roupas em camadas &mdash; setembro em SF &eacute; 14&ndash;22&deg;C</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Light jacket for evenings &mdash; fog rolls in fast after sunset</div><div class="pt">Jaqueta leve para as noites &mdash; nevoeiro chega r&aacute;pido</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Comfortable walking shoes &mdash; expect 15,000+ steps/day</div><div class="pt">Sapatos confort&aacute;veis &mdash; espere 15.000+ passos/dia</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">US power adapter (Type A/B) + portable power bank</div><div class="pt">Adaptador de tomada americano + carregador port&aacute;til</div></div></div>
+      <h3>&#127780;&#65039; <span data-lang="en">Weather &amp; Packing</span><span data-lang="pt">Clima e Mala</span></h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Pack layers &mdash; SF September is 14&ndash;22&deg;C, mornings are cold</span><span data-lang="pt">Leve roupas em camadas &mdash; setembro em SF &eacute; 14&ndash;22&deg;C</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Light jacket for evenings &mdash; fog rolls in fast after sunset</span><span data-lang="pt">Jaqueta leve para as noites &mdash; nevoeiro chega r&aacute;pido</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Comfortable walking shoes &mdash; expect 15,000+ steps/day</span><span data-lang="pt">Sapatos confort&aacute;veis &mdash; espere 15.000+ passos/dia</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">US power adapter (Type A/B) + portable power bank</span><span data-lang="pt">Adaptador de tomada americano + carregador port&aacute;til</span></div></div>
     </div>
 
     <div class="checklist-group">
-      <h3>&#9992;&#65039; Travel &amp; Logistics &middot; Viagem e Log&iacute;stica</h3>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Hotel booked near Moscone Center (SoMa district)</div><div class="pt">Hotel reservado pr&oacute;ximo ao Moscone Center (SoMa)</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Download Uber or Lyft with US payment method</div><div class="pt">Baixar Uber ou Lyft com pagamento americano</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">International roaming plan or US SIM card</div><div class="pt">Plano de roaming ou chip americano</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Notify your bank of international travel</div><div class="pt">Avisar o banco sobre viagem internacional</div></div></div>
+      <h3>&#9992;&#65039; <span data-lang="en">Travel &amp; Logistics</span><span data-lang="pt">Viagem e Log&iacute;stica</span></h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Hotel booked near Moscone Center (SoMa district)</span><span data-lang="pt">Hotel reservado pr&oacute;ximo ao Moscone Center (SoMa)</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Download Uber or Lyft with US payment method</span><span data-lang="pt">Baixar Uber ou Lyft com pagamento americano</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">International roaming plan or US SIM card</span><span data-lang="pt">Plano de roaming ou chip americano</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Notify your bank of international travel</span><span data-lang="pt">Avisar o banco sobre viagem internacional</span></div></div>
     </div>
 
     <div class="checklist-group">
-      <h3>&#127919; Event Preparation &middot; Prepara&ccedil;&atilde;o</h3>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Add sessions to agenda in <strong>Salesforce Events</strong> app &mdash; capacity fills fast</div><div class="pt">Adicione sess&otilde;es no app &mdash; vagas enchem r&aacute;pido</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Confirm executive meeting times with your Salesforce team</div><div class="pt">Confirme hor&aacute;rios de reuni&otilde;es executivas</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Bring business cards (digital or physical)</div><div class="pt">Leve cart&otilde;es de visita</div></div></div>
-      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><div class="en">Review the HLS sessions tab in this guide</div><div class="pt">Revise as sess&otilde;es HLS recomendadas neste guia</div></div></div>
+      <h3>&#127919; <span data-lang="en">Event Preparation</span><span data-lang="pt">Prepara&ccedil;&atilde;o para o Evento</span></h3>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Add sessions to agenda in <strong>Salesforce Events</strong> app &mdash; capacity fills fast</span><span data-lang="pt">Adicione sess&otilde;es no app &mdash; vagas enchem r&aacute;pido</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Confirm executive meeting times with your Salesforce team</span><span data-lang="pt">Confirme hor&aacute;rios de reuni&otilde;es executivas</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Bring business cards (digital or physical)</span><span data-lang="pt">Leve cart&otilde;es de visita</span></div></div>
+      <div class="checklist-item"><input type="checkbox"><div class="checklist-text"><span data-lang="en">Review the HLS sessions tab in this guide</span><span data-lang="pt">Revise as sess&otilde;es HLS recomendadas neste guia</span></div></div>
     </div>
 
     <div style="text-align:center;">
@@ -545,14 +544,14 @@
   <!-- ===== MAPS ===== -->
   <section class="section" id="maps">
     <div class="section-header">
-      <div class="overline">Orienta&ccedil;&atilde;o no Evento &middot; Event Navigation</div>
-      <h2>DF Maps &amp; Campus<span>Mapas e Campus</span></h2>
+      <div class="overline"><span data-lang="en">Event Navigation</span><span data-lang="pt">Orienta&ccedil;&atilde;o no Evento</span></div>
+      <h2><span data-lang="en">DF Maps &amp; Campus</span><span data-lang="pt">Mapas e Campus</span></h2>
     </div>
 
     <div class="map-card" style="text-align:center; padding:16px;">
       <img src="campus-map.png" alt="Dreamforce 2026 Campus Map" style="width:100%; max-width:800px; border-radius:12px; margin-bottom:14px;">
       <div>
-        <a href="https://www.google.com/maps/place/Moscone+Center/@37.7842,-122.4016,16z" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 20px;background:var(--accent-blue);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">&#128205; Open in Google Maps</a>
+        <a href="https://maps.google.com/?q=Moscone+Center,+747+Howard+St,+San+Francisco,+CA" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 20px;background:var(--accent-blue);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">&#128205; Open in Google Maps</a>
       </div>
     </div>
 
@@ -596,33 +595,46 @@
   <!-- ===== SAO FRANCISCO ===== -->
   <section class="section" id="sf-city">
     <div class="section-header">
-      <h2>&#127753; S&atilde;o Francisco<span>Restaurants &amp; Transport</span></h2>
+      <h2><span data-lang="en">&#127753; San Francisco</span><span data-lang="pt">&#127753; S&atilde;o Francisco</span></h2>
     </div>
 
     <div class="tip-group">
-      <h3>&#127861; Restaurants near Moscone</h3>
-      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/The+Cavalier/@37.7858,-122.4063,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">The Cavalier</a></strong> &mdash; Hotel Zeppelin, upscale British brasserie. Great for team dinners.</div>
-      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Amber+India+Restaurant/@37.7851,-122.3999,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Amber India</a></strong> &mdash; SoMa, Indian fine dining. Quick lunch option.</div>
-      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Tropisue%C3%B1o/@37.7836,-122.3995,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Tropisue&ntilde;o</a></strong> &mdash; Latin American, walking distance from Moscone.</div>
-      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/The+Bird/@37.7838,-122.3988,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">The Bird</a></strong> &mdash; Best fried chicken sandwiches in SoMa. Fast &amp; casual.</div>
-      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Super+Duper+Burgers/@37.7855,-122.4001,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Super Duper Burgers</a></strong> &mdash; Organic burgers, multiple SF locations.</div>
-      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Tartine+Manufactory/@37.7614,-122.4195,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Tartine Manufactory</a></strong> &mdash; Bakery &amp; caf&eacute;, perfect for breakfast/brunch.</div>
+      <h3><span data-lang="en">&#127861; Restaurants near Moscone</span><span data-lang="pt">&#127861; Restaurantes pr&oacute;ximos ao Moscone</span></h3>
+      <div class="tip-item"><strong><a href="https://maps.app.goo.gl/mhmDYKd2tVoyKGBm6" target="_blank" style="color:var(--accent-blue);text-decoration:none">The Cavalier</a></strong> &mdash; <span data-lang="en">Hotel Zeppelin, upscale British brasserie. Great for team dinners.</span><span data-lang="pt">Hotel Zeppelin, brasserie brit&acirc;nica sofisticada. &Oacute;timo para jantar em grupo.</span> &#128694; 8 min</div>
+      <div class="tip-item"><strong><a href="https://maps.app.goo.gl/7ymaJvaBVqfzeWsz8" target="_blank" style="color:var(--accent-blue);text-decoration:none">Amber India</a></strong> &mdash; <span data-lang="en">SoMa, Indian fine dining. Quick lunch option.</span><span data-lang="pt">SoMa, alta gastronomia indiana. &Oacute;timo para almo&ccedil;o r&aacute;pido.</span> &#128694; 6 min</div>
+      <div class="tip-item"><strong><a href="https://maps.app.goo.gl/uw8yYaEVUnyfWNA48" target="_blank" style="color:var(--accent-blue);text-decoration:none">Tropisue&ntilde;o</a></strong> &mdash; <span data-lang="en">Latin American, walking distance from Moscone.</span><span data-lang="pt">Latino-americano, a p&eacute; do Moscone.</span> &#128694; 5 min</div>
+      <div class="tip-item"><strong><a href="https://maps.app.goo.gl/W7mnGUZbYhGkSQTv5" target="_blank" style="color:var(--accent-blue);text-decoration:none">The Bird</a></strong> &mdash; <span data-lang="en">Best fried chicken sandwiches in SoMa. Fast &amp; casual.</span><span data-lang="pt">Melhores sandu&iacute;ches de frango frito de SoMa. R&aacute;pido e casual.</span> &#128694; 4 min</div>
+      <div class="tip-item"><strong><a href="https://maps.app.goo.gl/YEDguz2pCnsGTJyo9" target="_blank" style="color:var(--accent-blue);text-decoration:none">Super Duper Burgers</a></strong> &mdash; <span data-lang="en">Organic burgers, multiple SF locations.</span><span data-lang="pt">Hamb&uacute;rgueres org&acirc;nicos, v&aacute;rias unidades em SF.</span> &#128694; 5 min</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Delarosa/@37.7869,-122.4115,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Delarosa Downtown</a></strong> &mdash; <span data-lang="en">Neapolitan pizza, great cocktails. Perfect for team dinners.</span><span data-lang="pt">Pizza napolitana e &oacute;timos drinques. Perfeito para jantar em grupo.</span> &#128694; 8 min</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/La+Mar+Cebicher%C3%ADa/@37.7934,-122.3912,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">La Mar Cebicher&iacute;a</a></strong> &mdash; <span data-lang="en">Peruvian ceviche &amp; seafood on the Embarcadero. Stunning bay views. $$$</span><span data-lang="pt">Ceviche peruano e frutos do mar com vista para a Ba&iacute;a. $$$</span> &#128663; 10 min</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/John's+Grill/@37.7871,-122.4056,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">John's Grill</a></strong> &mdash; <span data-lang="en">SF institution since 1908 — classic American steakhouse.</span><span data-lang="pt">Cl&aacute;ssico de SF desde 1908 — churrascaria americana.</span> &#128694; 10 min</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Perbacco/@37.7920,-122.4005,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Perbacco</a></strong> &mdash; <span data-lang="en">Northern Italian fine dining — excellent wine list, ideal for executive dinners. $$$$</span><span data-lang="pt">Alta gastronomia italiana — &oacute;tima carta de vinhos, ideal para jantares executivos. $$$$</span> &#128694; 12 min</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/Sightglass+Coffee/@37.7808,-122.3992,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">Sightglass Coffee</a></strong> &mdash; <span data-lang="en">Best third-wave coffee in SoMa. Perfect for early morning meetings.</span><span data-lang="pt">Melhor caf&eacute; especial do SoMa. Perfeito para reuni&otilde;es matinais.</span> &#128694; 5 min</div>
+      <div class="tip-item"><strong><a href="https://www.google.com/maps/place/The+Cheesecake+Factory/@37.7876,-122.4074,17z" target="_blank" style="color:var(--accent-blue);text-decoration:none">The Cheesecake Factory</a></strong> &mdash; <span data-lang="en">Classic American menu with 250+ dishes. Great for groups. 251 Geary St.</span><span data-lang="pt">Card&aacute;pio americano cl&aacute;ssico com 250+ op&ccedil;&otilde;es. &Oacute;timo para grupos.</span> &#128694; 8 min</div>
     </div>
 
     <div class="tip-group">
-      <h3>&#128652; Transport</h3>
-      <div class="tip-item"><strong>From SFO to downtown:</strong> BART ($9.65, ~30min) or Uber/Lyft (~$30&ndash;50).</div>
-      <div class="tip-item"><strong>Around the city:</strong> Uber/Lyft is the easiest. MUNI for longer distances.</div>
-      <div class="tip-item"><strong>Walking:</strong> Moscone to Union Square ~12min. Most hotels are walkable.</div>
-      <div class="tip-item"><strong>Tip:</strong> Avoid driving &mdash; parking is $40&ndash;60/day near Moscone.</div>
+      <h3><span data-lang="en">&#128652; Getting Around</span><span data-lang="pt">&#128652; Como se Locomover</span></h3>
+      <div class="tip-item"><strong>Uber / Lyft:</strong> <span data-lang="en">Most reliable. Expect surge pricing at peak DF hours — book in advance.</span><span data-lang="pt">Mais confi&aacute;vel. Espere pre&ccedil;os altos nos hor&aacute;rios de pico — reserve com anteced&ecirc;ncia.</span></div>
+      <div class="tip-item"><strong>BART / Muni:</strong> <span data-lang="en">Powell St. station closest to Moscone. Quick &amp; cheap. Get a Clipper card.</span><span data-lang="pt">Esta&ccedil;&atilde;o Powell St. mais pr&oacute;xima do Moscone. R&aacute;pido e barato. Pegue um Clipper card.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Airport (SFO &rarr; City):</span><span data-lang="pt">Aeroporto (SFO &rarr; Cidade):</span></strong> BART: ~35 min, $11. Uber: ~30&ndash;50 min, $35&ndash;60.</div>
+      <div class="tip-item"><strong><span data-lang="en">Avoid driving:</span><span data-lang="pt">Evite carro:</span></strong> <span data-lang="en">Most venues are walkable. Traffic &amp; parking are brutal during DF. BART/Muni are faster.</span><span data-lang="pt">Maioria dos locais &eacute; a p&eacute;. Tr&acirc;nsito e estacionamento s&atilde;o ca&oacute;ticos. BART/Muni s&atilde;o mais r&aacute;pidos.</span></div>
     </div>
 
     <div class="tip-group">
-      <h3>&#127774; Must-see (if you have free time)</h3>
-      <div class="tip-item"><strong>Golden Gate Bridge</strong> &mdash; Uber to Battery Spencer for the best viewpoint.</div>
-      <div class="tip-item"><strong>Fisherman&rsquo;s Wharf</strong> &mdash; Touristy but fun. Clam chowder in a bread bowl.</div>
-      <div class="tip-item"><strong>Mission District</strong> &mdash; Best murals, tacos, and coffee in SF.</div>
-      <div class="tip-item"><strong>Chinatown</strong> &mdash; Oldest in North America. Great for a quick walk.</div>
+      <h3><span data-lang="en">&#128161; Local Know-How</span><span data-lang="pt">&#128161; Dicas Locais</span></h3>
+      <div class="tip-item"><strong><span data-lang="en">Tipping:</span><span data-lang="pt">Gorjetas:</span></strong> <span data-lang="en">15&ndash;20% at restaurants. $2&ndash;5 for rides. Expected everywhere.</span><span data-lang="pt">15&ndash;20% em restaurantes. $2&ndash;5 em corridas. Esperado em todo lugar.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Safety:</span><span data-lang="pt">Seguran&ccedil;a:</span></strong> <span data-lang="en">Stick to SoMa, Union Square, and the waterfront. Avoid Tenderloin at night.</span><span data-lang="pt">Fique no SoMa, Union Square e orla. Evite o Tenderloin &agrave; noite.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Time Zone:</span><span data-lang="pt">Fuso Hor&aacute;rio:</span></strong> PDT (UTC-7) &mdash; <span data-lang="en">4 hours behind Bras&iacute;lia (BRT = UTC-3).</span><span data-lang="pt">4 horas atr&aacute;s de Bras&iacute;lia (BRT = UTC-3).</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Emergency:</span><span data-lang="pt">Emerg&ecirc;ncia:</span></strong> <span data-lang="en">US emergency: 911. Brazilian Consulate SF: +1 (415) 981-8170.</span><span data-lang="pt">Emerg&ecirc;ncia EUA: 911. Consulado Brasileiro em SF: +1 (415) 981-8170.</span></div>
+    </div>
+
+    <div class="tip-group">
+      <h3><span data-lang="en">&#127774; Must-see (if you have free time)</span><span data-lang="pt">&#127774; Imperd&iacute;veis (se tiver tempo livre)</span></h3>
+      <div class="tip-item"><strong>Golden Gate Bridge</strong> &mdash; <span data-lang="en">Uber to Battery Spencer for the best viewpoint.</span><span data-lang="pt">Uber at&eacute; Battery Spencer para a melhor vista.</span></div>
+      <div class="tip-item"><strong>Fisherman's Wharf</strong> &mdash; <span data-lang="en">Touristy but fun. Clam chowder in a bread bowl.</span><span data-lang="pt">Tur&iacute;stico mas divertido. Sopa de mariscos no p&atilde;o.</span></div>
+      <div class="tip-item"><strong>Mission District</strong> &mdash; <span data-lang="en">Best murals, tacos, and coffee in SF.</span><span data-lang="pt">Melhores murais, tacos e caf&eacute; de SF.</span></div>
+      <div class="tip-item"><strong>Chinatown</strong> &mdash; <span data-lang="en">Oldest in North America. Great for a quick walk.</span><span data-lang="pt">Mais antiga da Am&eacute;rica do Norte. &Oacute;timo para caminhar.</span></div>
     </div>
 
     <div style="text-align:center;">
@@ -633,25 +645,28 @@
   <!-- ===== GENERAL TIPS ===== -->
   <section class="section" id="tips">
     <div class="section-header">
-      <h2>&#128161; General Tips<span>Dicas Gerais para Brasileiros</span></h2>
+      <h2><span data-lang="en">&#128161; General Tips</span><span data-lang="pt">&#128161; Dicas Gerais</span></h2>
     </div>
 
     <div class="tip-group">
-      <h3>&#127463;&#127479; Dicas para quem vem do Brasil</h3>
-      <div class="tip-item"><strong>Fuso hor&aacute;rio:</strong> SF &eacute; GMT-7 (4h atr&aacute;s de Bras&iacute;lia). Chegue 1 dia antes para adaptar.</div>
-      <div class="tip-item"><strong>Gorjeta:</strong> 18&ndash;20% em restaurantes, sempre. J&aacute; inclua no or&ccedil;amento.</div>
-      <div class="tip-item"><strong>Chip americano:</strong> Compre um eSIM antes (Airalo, Holafly) ou chip na T-Mobile ao chegar.</div>
-      <div class="tip-item"><strong>Cart&atilde;o:</strong> Cart&atilde;o internacional sem IOF (Wise, C6 Global, Inter) &eacute; melhor que câmbio.</div>
-      <div class="tip-item"><strong>Clima:</strong> SF em setembro parece outono &mdash; n&atilde;o &eacute; o &ldquo;calor da Calif&oacute;rnia&rdquo; que voc&ecirc; imagina.</div>
+      <h3><span data-lang="en">&#127463;&#127479; Tips for Brazilians</span><span data-lang="pt">&#127463;&#127479; Dicas para quem vem do Brasil</span></h3>
+      <div class="tip-item"><strong><span data-lang="en">Time zone:</span><span data-lang="pt">Fuso hor&aacute;rio:</span></strong> <span data-lang="en">SF is PDT (UTC-7), 4h behind Bras&iacute;lia. Arrive 1 day early to adjust.</span><span data-lang="pt">SF &eacute; PDT (UTC-7), 4h atr&aacute;s de Bras&iacute;lia. Chegue 1 dia antes para adaptar.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Tipping:</span><span data-lang="pt">Gorjeta:</span></strong> <span data-lang="en">18&ndash;20% at restaurants, always. Budget for it.</span><span data-lang="pt">18&ndash;20% em restaurantes, sempre. J&aacute; inclua no or&ccedil;amento.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">US SIM:</span><span data-lang="pt">Chip americano:</span></strong> <span data-lang="en">Buy an eSIM before (Airalo, Holafly) or T-Mobile SIM on arrival.</span><span data-lang="pt">Compre um eSIM antes (Airalo, Holafly) ou chip na T-Mobile ao chegar.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Card:</span><span data-lang="pt">Cart&atilde;o:</span></strong> <span data-lang="en">International card without IOF (Wise, C6 Global, Inter) is better than exchange.</span><span data-lang="pt">Cart&atilde;o internacional sem IOF (Wise, C6 Global, Inter) &eacute; melhor que c&acirc;mbio.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Weather:</span><span data-lang="pt">Clima:</span></strong> <span data-lang="en">SF in September feels like autumn &mdash; not the "California heat" you'd expect.</span><span data-lang="pt">SF em setembro parece outono &mdash; n&atilde;o &eacute; o "calor da Calif&oacute;rnia" que voc&ecirc; imagina.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Safety:</span><span data-lang="pt">Seguran&ccedil;a:</span></strong> <span data-lang="en">Stick to SoMa, Union Square, waterfront. Avoid Tenderloin at night.</span><span data-lang="pt">Fique no SoMa, Union Square e orla. Evite o Tenderloin &agrave; noite.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Emergency:</span><span data-lang="pt">Emerg&ecirc;ncia:</span></strong> <span data-lang="en">US: 911. Brazilian Consulate SF: +1 (415) 981-8170.</span><span data-lang="pt">EUA: 911. Consulado Brasileiro em SF: +1 (415) 981-8170.</span></div>
     </div>
 
     <div class="tip-group">
-      <h3>&#127919; Dicas para o Dreamforce</h3>
-      <div class="tip-item"><strong>Chegue cedo:</strong> Sess&otilde;es populares lotam. Filas de 15&ndash;20min s&atilde;o comuns.</div>
-      <div class="tip-item"><strong>App Salesforce Events:</strong> Adicione sess&otilde;es &agrave; sua agenda com anteced&ecirc;ncia.</div>
-      <div class="tip-item"><strong>Networking:</strong> Converse nas filas &mdash; todo mundo est&aacute; aberto. Traga cart&otilde;es.</div>
-      <div class="tip-item"><strong>Carregador port&aacute;til:</strong> Obrigat&oacute;rio. Seu celular vai descarregar r&aacute;pido com tanto uso do app.</div>
-      <div class="tip-item"><strong>Sapato confort&aacute;vel:</strong> S&eacute;rio. S&atilde;o 15.000+ passos por dia entre pr&eacute;dios.</div>
+      <h3><span data-lang="en">&#127919; Dreamforce Tips</span><span data-lang="pt">&#127919; Dicas para o Dreamforce</span></h3>
+      <div class="tip-item"><strong><span data-lang="en">Arrive early:</span><span data-lang="pt">Chegue cedo:</span></strong> <span data-lang="en">Popular sessions fill up. 15&ndash;20min queues are common.</span><span data-lang="pt">Sess&otilde;es populares lotam. Filas de 15&ndash;20min s&atilde;o comuns.</span></div>
+      <div class="tip-item"><strong>Salesforce Events app:</strong> <span data-lang="en">Add sessions to your agenda early &mdash; capacity fills fast.</span><span data-lang="pt">Adicione sess&otilde;es &agrave; sua agenda com anteced&ecirc;ncia &mdash; vagas enchem r&aacute;pido.</span></div>
+      <div class="tip-item"><strong>Networking:</strong> <span data-lang="en">Chat in the queues &mdash; everyone is open. Bring business cards.</span><span data-lang="pt">Converse nas filas &mdash; todo mundo est&aacute; aberto. Traga cart&otilde;es.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Power bank:</span><span data-lang="pt">Carregador port&aacute;til:</span></strong> <span data-lang="en">Mandatory. Your phone will drain fast with heavy app usage.</span><span data-lang="pt">Obrigat&oacute;rio. Seu celular vai descarregar r&aacute;pido com tanto uso do app.</span></div>
+      <div class="tip-item"><strong><span data-lang="en">Comfy shoes:</span><span data-lang="pt">Sapato confort&aacute;vel:</span></strong> <span data-lang="en">Seriously. 15,000+ steps/day between buildings.</span><span data-lang="pt">S&eacute;rio. 15.000+ passos por dia entre pr&eacute;dios.</span></div>
+      <div class="tip-item"><strong>LATAM Lounge:</strong> <span data-lang="en">City View (venue #2) — meetup point for the Brazilian community.</span><span data-lang="pt">City View (venue #2) &mdash; ponto de encontro da comunidade brasileira.</span></div>
     </div>
 
     <div style="text-align:center;">
@@ -662,14 +677,13 @@
   <!-- ===== SESSIONS ===== -->
   <section class="section" id="sessions">
     <div class="section-header">
-      <div class="overline">Curated Agenda &middot; Agenda Curada</div>
-      <h2>&#128197; Sessions HLS<span>Healthcare &amp; Life Sciences &middot; Sep 15&ndash;17</span></h2>
+      <div class="overline"><span data-lang="en">Curated Agenda</span><span data-lang="pt">Agenda Curada</span></div>
+      <h2><span data-lang="en">&#128197; Sessions</span><span data-lang="pt">&#128197; Sess&otilde;es</span></h2>
     </div>
 
     <div class="day-toggle">
       <button class="day-btn active" data-day="all" onclick="filterDay('all')">All Days</button>
-      <button class="day-btn" data-day="mon" onclick="filterDay('mon')">Mon Sep 14</button>
-      <button class="day-btn" data-day="tue" onclick="filterDay('tue')">Tue Sep 15</button>
+            <button class="day-btn" data-day="tue" onclick="filterDay('tue')">Tue Sep 15</button>
       <button class="day-btn" data-day="wed" onclick="filterDay('wed')">Wed Sep 16</button>
       <button class="day-btn" data-day="thu" onclick="filterDay('thu')">Thu Sep 17</button>
     </div>
@@ -686,7 +700,28 @@
     </div>
 
     <!-- ===== TUESDAY ===== -->
-    <div class="day-header" data-day="tue">Tuesday, Sep 15 &middot; Ter&ccedil;a-feira</div>
+    <div class="day-header" data-day="tue"><span data-lang="en">Tuesday, Sep 15</span><span data-lang="pt">Ter&ccedil;a-feira, 15 Set</span></div>
+
+    <div class="session-card" data-day="tue" data-track="hc">
+      <div class="session-time">8:30 AM</div>
+      <div class="session-title">Getting Health AI Right: Lessons from the Field</div>
+      <div class="session-meta">
+        <span>&#128205; InterCon, L5, Ballroom C, Roundtable 9</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag tag-roundtable">Roundtable</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839172374001GlsK" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card keynote" data-day="tue" data-track="pl">
+      <div class="session-time">10:00 AM</div>
+      <div class="session-title">Dreamforce Main Keynote 2026</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, LL, Keynote Hall B</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1776704005612001dxP3" target="_blank">View in catalog &rarr;</a>
+    </div>
 
     <div class="session-card" data-day="tue" data-track="hc">
       <div class="session-time">1:00 &ndash; 1:40 PM</div>
@@ -754,8 +789,52 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839156939001GAsh" target="_blank">View in catalog &rarr;</a>
     </div>
 
+    <div class="session-card" data-day="tue" data-track="hc">
+      <div class="session-time">1:00 PM</div>
+      <div class="session-title">Governing AI in Healthcare: Trust and Compliance</div>
+      <div class="session-meta">
+        <span>&#128205; InterCon, L3, Ballroom A, Roundtable 8</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag tag-roundtable">Roundtable</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839171202001G2d9" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card keynote" data-day="tue" data-track="pl">
+      <div class="session-time">2:15 PM</div>
+      <div class="session-title">Security Keynote: Trust Across Agents, Data, and Platforms</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Keynote Room 2020</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+        <span class="session-tag tag-pl">Platform</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781727012181001lpWi" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-day="tue" data-track="hc">
+      <div class="session-time">3:30 PM</div>
+      <div class="session-title">CVS Aetna: Care Management with Agentforce Health</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theatre 9</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838542979001GxCr" target="_blank">View in catalog &rarr;</a>
+    </div>
+
     <!-- ===== WEDNESDAY ===== -->
-    <div class="day-header" data-day="wed">Wednesday, Sep 16 &middot; Quarta-feira</div>
+    <div class="day-header" data-day="wed"><span data-lang="en">Wednesday, Sep 16</span><span data-lang="pt">Quarta-feira, 16 Set</span></div>
+
+    <div class="session-card" data-day="wed" data-track="hc">
+      <div class="session-time">8:30 AM</div>
+      <div class="session-title">Healthcare at Scale: Lessons from the Agentic Era</div>
+      <div class="session-meta">
+        <span>&#128205; InterCon, L3, Grand Ballroom A, Roundtable 1</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag tag-roundtable">Roundtable</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839168849001GMMu" target="_blank">View in catalog &rarr;</a>
+    </div>
 
     <div class="session-card" data-day="wed" data-track="ls">
       <div class="session-time">8:30 &ndash; 9:20 AM</div>
@@ -846,7 +925,74 @@
     </div>
 
     <!-- ===== THURSDAY ===== -->
-    <div class="day-header" data-day="thu">Thursday, Sep 17 &middot; Quinta-feira</div>
+    <div class="session-card" data-day="wed" data-track="d3">
+      <div class="session-time">11:30 AM &ndash; 12:10 PM</div>
+      <div class="session-title">Trusted AI Context: Zero Copy with Data 360 and BigQuery</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theatre 9</span>
+        <span class="session-tag tag-d3">Data 360</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838574078001GTou" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-day="wed" data-track="hc">
+      <div class="session-time">12:00 PM</div>
+      <div class="session-title">Transforming Provider Experience with Agentforce for Health</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theatre 10</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838599061001G582" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-day="wed" data-track="hc">
+      <div class="session-time">12:30 PM</div>
+      <div class="session-title">The AI Will See You Now: Penn Medicine Agentforce Lessons</div>
+      <div class="session-meta">
+        <span>&#128205; Metreon AMC, L3, Theatre 11</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span style="background:rgba(1,118,211,0.1);color:#0369a1" class="session-tag">Breakout</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838557736001G1if" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-day="wed" data-track="hc">
+      <div class="session-time">2:00 PM</div>
+      <div class="session-title">The Human Side of Agentic Patient Access</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, LL, Content Pavilion, Stage 4</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Theater</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839150903001GdCl" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-day="wed" data-track="hc">
+      <div class="session-time">2:30 PM</div>
+      <div class="session-title">What It Takes to Go Agentic in Healthcare</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L3, Theater 18</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span style="background:rgba(6,182,212,0.1);color:#0891b2" class="session-tag">Theater</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839155734001GJWh" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card keynote" data-day="wed" data-track="pl">
+      <div class="session-time">4:00 PM</div>
+      <div class="session-title">The Qualified Keynote: Generate Pipeline at Scale</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone West, L2, Keynote Room 2020</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+        <span class="session-tag tag-pl">Platform</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781726984632001lv98" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <!-- ===== THURSDAY ===== -->
+    <div class="day-header" data-day="thu"><span data-lang="en">Thursday, Sep 17</span><span data-lang="pt">Quinta-feira, 17 Set</span></div>
 
     <div class="session-card" data-day="thu" data-track="ls">
       <div class="session-time">8:30 &ndash; 9:30 AM</div>
@@ -912,6 +1058,50 @@
         <span class="session-tag" style="background:rgba(1,118,211,0.1);color:#0369a1">Breakout</span>
       </div>
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839142907001GNBx" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card keynote" data-day="thu" data-track="af">
+      <div class="session-time">10:00 AM</div>
+      <div class="session-title">Slack Keynote: The Multiplayer Work OS for Headless 360</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, LL, Keynote Hall B</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+        <span class="session-tag tag-af">AIforce</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1778959193990001lWIQ" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card keynote" data-day="thu" data-track="mk">
+      <div class="session-time">11:30 AM</div>
+      <div class="session-title">Marketing Keynote: A New Model for Growth</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, LL, Keynote Hall B</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+        <span class="session-tag tag-mk">Marketing</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781726983251001lIFg" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card" data-day="thu" data-track="hc">
+      <div class="session-time">1:00 PM</div>
+      <div class="session-title">Getting Health AI Right: Lessons from the Field</div>
+      <div class="session-meta">
+        <span>&#128205; InterCon, L5, Ballroom A, Roundtable 7</span>
+        <span class="session-tag tag-hc">Healthcare</span>
+        <span class="session-tag tag-roundtable">Roundtable</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839172374001GlsK" target="_blank">View in catalog &rarr;</a>
+    </div>
+
+    <div class="session-card keynote" data-day="thu" data-track="pl">
+      <div class="session-time">2:30 PM</div>
+      <div class="session-title">True to the Core: Live Q&amp;A with Product Leaders</div>
+      <div class="session-meta">
+        <span>&#128205; Moscone South, LL, Keynote Hall A</span>
+        <span class="session-tag tag-keynote">Keynote</span>
+        <span class="session-tag tag-pl">Platform</span>
+      </div>
+      <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781727008652001lBd7" target="_blank">View in catalog &rarr;</a>
     </div>
 
     <!-- ===== BRASIL HIGHLIGHT ===== -->
