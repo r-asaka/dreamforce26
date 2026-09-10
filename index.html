@@ -354,6 +354,37 @@
     }
     .footer a { color: var(--accent-blue); text-decoration: none; }
 
+    /* --- Lang toggle --- */
+    .lang-toggle {
+      position: fixed; top: 14px; right: 20px; z-index: 100;
+      display: flex; gap: 0; border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border-color); background: var(--bg-card);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08); font-size: 12px; font-weight: 600;
+    }
+    .lang-btn {
+      padding: 6px 14px; cursor: pointer; border: none; background: transparent;
+      color: var(--text-muted); font-family: inherit; font-size: 12px; font-weight: 600;
+      transition: all .2s;
+    }
+    .lang-btn.active { background: var(--accent-blue); color: #fff; }
+
+    /* --- Day filter --- */
+    .day-toggle {
+      display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; justify-content: center;
+    }
+    .day-btn {
+      padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color);
+      background: var(--bg-card); color: var(--text-secondary); font-size: 12px; font-weight: 600;
+      cursor: pointer; transition: all .2s; font-family: inherit;
+    }
+    .day-btn.active { background: var(--accent-navy); color: #fff; border-color: var(--accent-navy); }
+    .day-btn:hover:not(.active) { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+    /* --- i18n --- */
+    [data-lang="en"] { display: none; }
+    body.lang-en [data-lang="en"] { display: inline; }
+    body.lang-en [data-lang="pt"] { display: none; }
+
     @media (max-width: 600px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-grid { grid-template-columns: 1fr; }
@@ -364,18 +395,23 @@
 </head>
 <body>
 
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('pt')">&#127463;&#127479; PT</button>
+  <button class="lang-btn" onclick="setLang('en')">&#127482;&#127480; EN</button>
+</div>
+
 <div class="container">
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="home-section">
     <div class="sparkles">&#10022; &#10022;</div>
-    <div class="badge">Guia HLS &middot; Health &amp; Life Sciences</div>
+    <div class="badge"><span data-lang="pt">Guia HLS &middot; Health &amp; Life Sciences</span><span data-lang="en">HLS Guide &middot; Health &amp; Life Sciences</span></div>
     <h1>Dreamforce</h1>
     <div class="year">2026</div>
     <div class="subtitle">Powered by Agentforce</div>
     <p class="desc">
-      Your personalized guide for Healthcare &amp; Life Sciences sessions.<br>
-      <em>Seu guia personalizado para sess&otilde;es de Sa&uacute;de e Ci&ecirc;ncias da Vida.</em>
+      <span data-lang="pt">Seu guia personalizado para sess&otilde;es de Sa&uacute;de e Ci&ecirc;ncias da Vida.</span>
+      <span data-lang="en">Your personalized guide for Healthcare &amp; Life Sciences sessions.</span>
     </p>
     <div class="event-badge">
       San Francisco &nbsp;&middot;&nbsp; Moscone Center &nbsp;&middot;&nbsp; Sep 15&ndash;17, 2026
@@ -408,38 +444,38 @@
 
   <!-- ===== NAV GRID ===== -->
   <section class="nav-section" id="nav-grid">
-    <h2>Your Guide</h2>
-    <p class="sub">Seu Guia</p>
+    <h2><span data-lang="pt">Seu Guia</span><span data-lang="en">Your Guide</span></h2>
+    <p class="sub"><span data-lang="pt">Navegue pelas se&ccedil;&otilde;es abaixo</span><span data-lang="en">Browse the sections below</span></p>
     <div class="nav-grid">
       <a class="nav-card" onclick="showSection('checklist')">
         <div class="icon">&#9989;</div>
         <h3>Checklist</h3>
-        <p>Before you go &middot; Antes de partir</p>
+        <p><span data-lang="pt">Antes de partir</span><span data-lang="en">Before you go</span></p>
       </a>
       <a class="nav-card" onclick="showSection('maps')">
         <div class="icon">&#128506;&#65039;</div>
         <h3>DF Maps</h3>
-        <p>Campus map &amp; tips &middot; Mapa e dicas</p>
+        <p><span data-lang="pt">Mapa e dicas</span><span data-lang="en">Campus map &amp; tips</span></p>
       </a>
       <a class="nav-card" onclick="showSection('sf-city')">
         <div class="icon">&#127753;</div>
         <h3>S&atilde;o Francisco</h3>
-        <p>Restaurants &amp; transport &middot; Restaurantes e transporte</p>
+        <p><span data-lang="pt">Restaurantes e transporte</span><span data-lang="en">Restaurants &amp; transport</span></p>
       </a>
       <a class="nav-card" onclick="showSection('tips')">
         <div class="icon">&#128161;</div>
         <h3>General Tips &middot; Dicas Gerais</h3>
-        <p>Tips for BR attendees &middot; Dicas para brasileiros</p>
+        <p><span data-lang="pt">Dicas para brasileiros</span><span data-lang="en">Tips for BR attendees</span></p>
       </a>
       <a class="nav-card" onclick="showSection('sessions')">
         <div class="icon">&#128197;</div>
         <h3>Sessions HLS</h3>
-        <p>Healthcare &amp; Life Sciences &middot; 3-day curated agenda &middot; Sep 15&ndash;17</p>
+        <p><span data-lang="pt">Agenda curada de 3 dias &middot; 15&ndash;17 Set</span><span data-lang="en">3-day curated agenda &middot; Sep 15&ndash;17</span></p>
       </a>
       <a class="nav-card" onclick="showSection('contacts')">
         <div class="icon">&#128172;</div>
         <h3>Contato</h3>
-        <p>Your Salesforce SE &middot; Sua SE Salesforce</p>
+        <p><span data-lang="pt">Sua SE Salesforce</span><span data-lang="en">Your Salesforce SE</span></p>
       </a>
     </div>
   </section>
@@ -458,7 +494,7 @@
       </div>
     </div>
     <div style="text-align:center;">
-      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+      <a class="back-link" onclick="showSection('home')"><span data-lang="pt">&larr; Voltar ao In&iacute;cio</span><span data-lang="en">&larr; Back to Home</span></a>
     </div>
   </section>
 
@@ -502,7 +538,7 @@
     </div>
 
     <div style="text-align:center;">
-      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+      <a class="back-link" onclick="showSection('home')"><span data-lang="pt">&larr; Voltar ao In&iacute;cio</span><span data-lang="en">&larr; Back to Home</span></a>
     </div>
   </section>
 
@@ -514,7 +550,7 @@
     </div>
 
     <div class="map-card" style="text-align:center; padding:16px;">
-      <img src="https://images.contentstack.io/v3/assets/blt11ae8e46c5400345/blt6e62e84068df77ff/683db6f67e3bf54f16aac0a3/Campus_Map_-_2025_-_Dreamforce.png" alt="Dreamforce 2026 Campus Map" style="width:100%; max-width:800px; border-radius:12px; margin-bottom:14px;">
+      <img src="campus-map.png" alt="Dreamforce 2026 Campus Map" style="width:100%; max-width:800px; border-radius:12px; margin-bottom:14px;">
       <div>
         <a href="https://www.google.com/maps/place/Moscone+Center/@37.7842,-122.4016,16z" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 20px;background:var(--accent-blue);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">&#128205; Open in Google Maps</a>
       </div>
@@ -553,7 +589,7 @@
     </div>
 
     <div style="text-align:center;">
-      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+      <a class="back-link" onclick="showSection('home')"><span data-lang="pt">&larr; Voltar ao In&iacute;cio</span><span data-lang="en">&larr; Back to Home</span></a>
     </div>
   </section>
 
@@ -590,7 +626,7 @@
     </div>
 
     <div style="text-align:center;">
-      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+      <a class="back-link" onclick="showSection('home')"><span data-lang="pt">&larr; Voltar ao In&iacute;cio</span><span data-lang="en">&larr; Back to Home</span></a>
     </div>
   </section>
 
@@ -619,7 +655,7 @@
     </div>
 
     <div style="text-align:center;">
-      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+      <a class="back-link" onclick="showSection('home')"><span data-lang="pt">&larr; Voltar ao In&iacute;cio</span><span data-lang="en">&larr; Back to Home</span></a>
     </div>
   </section>
 
@@ -628,6 +664,14 @@
     <div class="section-header">
       <div class="overline">Curated Agenda &middot; Agenda Curada</div>
       <h2>&#128197; Sessions HLS<span>Healthcare &amp; Life Sciences &middot; Sep 15&ndash;17</span></h2>
+    </div>
+
+    <div class="day-toggle">
+      <button class="day-btn active" data-day="all" onclick="filterDay('all')">All Days</button>
+      <button class="day-btn" data-day="mon" onclick="filterDay('mon')">Mon Sep 14</button>
+      <button class="day-btn" data-day="tue" onclick="filterDay('tue')">Tue Sep 15</button>
+      <button class="day-btn" data-day="wed" onclick="filterDay('wed')">Wed Sep 16</button>
+      <button class="day-btn" data-day="thu" onclick="filterDay('thu')">Thu Sep 17</button>
     </div>
 
     <div class="track-toggle">
@@ -642,9 +686,9 @@
     </div>
 
     <!-- ===== TUESDAY ===== -->
-    <div class="day-header">Tuesday, Sep 15 &middot; Ter&ccedil;a-feira</div>
+    <div class="day-header" data-day="tue">Tuesday, Sep 15 &middot; Ter&ccedil;a-feira</div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="tue" data-track="hc">
       <div class="session-time">1:00 &ndash; 1:40 PM</div>
       <div class="session-title">Agentforce Health Roadmap: Driving Healthier Outcomes</div>
       <div class="session-meta">
@@ -655,7 +699,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839148129001Gj4Q" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="tue" data-track="hc">
       <div class="session-time">1:30 &ndash; 1:50 PM</div>
       <div class="session-title">Transforming Care Management at Scale with Agentforce Health</div>
       <div class="session-meta">
@@ -666,7 +710,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839154523001Ghxi" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls keynote">
+    <div class="session-card" data-day="tue" data-track="ls keynote">
       <div class="session-time">2:00 &ndash; 2:50 PM</div>
       <div class="session-title">Life Sciences Keynote: Rewriting the Script with Agentforce 360</div>
       <div class="session-meta">
@@ -677,7 +721,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781727001455001liKc" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="tue" data-track="hc">
       <div class="session-time">2:30 &ndash; 3:30 PM</div>
       <div class="session-title">Agentforce for Health: Proof to Production</div>
       <div class="session-meta">
@@ -688,7 +732,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839175954001GCfb" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="tue" data-track="hc">
       <div class="session-time">3:00 &ndash; 3:20 PM</div>
       <div class="session-title">Transform Health Ops and Protect Margins with Agentforce</div>
       <div class="session-meta">
@@ -699,7 +743,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839152125001G0sW" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="tue" data-track="ls">
       <div class="session-time">3:30 &ndash; 3:50 PM</div>
       <div class="session-title">Speed Up Access for Patient Services and FRMs</div>
       <div class="session-meta">
@@ -711,9 +755,9 @@
     </div>
 
     <!-- ===== WEDNESDAY ===== -->
-    <div class="day-header">Wednesday, Sep 16 &middot; Quarta-feira</div>
+    <div class="day-header" data-day="wed">Wednesday, Sep 16 &middot; Quarta-feira</div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="wed" data-track="ls">
       <div class="session-time">8:30 &ndash; 9:20 AM</div>
       <div class="session-title">Agentforce Life Sciences Roadmap</div>
       <div class="session-meta">
@@ -724,7 +768,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839142907001GNBx" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card keynote" data-track="hc">
+    <div class="session-card keynote" data-day="wed" data-track="hc">
       <div class="session-time">10:45 &ndash; 11:35 AM &nbsp; &#11088; Keynote</div>
       <div class="session-title">Health Keynote: Reconnecting Humans to Health</div>
       <div class="session-meta">
@@ -735,7 +779,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781727000053001lV5c" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="wed" data-track="ls">
       <div class="session-time">11:30 AM &ndash; 12:10 PM</div>
       <div class="session-title">The Agentic Pharma Playbook: AI for the Entire Value Chain</div>
       <div class="session-meta">
@@ -746,7 +790,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839140229001Gz1u" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="wed" data-track="ls">
       <div class="session-time">12:00 &ndash; 1:00 PM</div>
       <div class="session-title">From Chaos to Compliance: Transforming Regulated Content</div>
       <div class="session-meta">
@@ -757,7 +801,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839167681001GksA" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="wed" data-track="hc">
       <div class="session-time">12:30 &ndash; 1:10 PM</div>
       <div class="session-title">From Pilot to Production with Agentforce in Healthcare</div>
       <div class="session-meta">
@@ -768,7 +812,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839145477001GK5L" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="wed" data-track="hc">
       <div class="session-time">12:30 &ndash; 12:50 PM</div>
       <div class="session-title">Architect Agent-Ready Infrastructure for Payers</div>
       <div class="session-meta">
@@ -779,7 +823,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839153327001GFeO" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="wed" data-track="hc">
       <div class="session-time">1:30 &ndash; 2:10 PM</div>
       <div class="session-title">Unified Data, Smarter Agents, Healthier Outcomes</div>
       <div class="session-meta">
@@ -790,7 +834,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839149548001GOaB" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="wed" data-track="ls">
       <div class="session-time">3:00 &ndash; 4:00 PM</div>
       <div class="session-title">Best Practices for Deploying Agentforce in Life Sciences</div>
       <div class="session-meta">
@@ -802,9 +846,9 @@
     </div>
 
     <!-- ===== THURSDAY ===== -->
-    <div class="day-header">Thursday, Sep 17 &middot; Quinta-feira</div>
+    <div class="day-header" data-day="thu">Thursday, Sep 17 &middot; Quinta-feira</div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="thu" data-track="ls">
       <div class="session-time">8:30 &ndash; 9:30 AM</div>
       <div class="session-title">Agentforce for Life Sciences: Proof to Production</div>
       <div class="session-meta">
@@ -815,7 +859,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839174788001G2uA" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="thu" data-track="hc">
       <div class="session-time">10:30 &ndash; 11:10 AM</div>
       <div class="session-title">How Our Most Innovative Payers are Winning with Agentforce</div>
       <div class="session-meta">
@@ -826,7 +870,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839146847001GpPq" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="thu" data-track="ls">
       <div class="session-time">10:30 &ndash; 11:10 AM</div>
       <div class="session-title">Building the Agentic MedTech Enterprise</div>
       <div class="session-meta">
@@ -837,7 +881,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839141642001GSV0" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="thu" data-track="ls">
       <div class="session-time">1:00 &ndash; 1:40 PM</div>
       <div class="session-title">Clinical Command Center: Unifying Sponsors and Sites with AI</div>
       <div class="session-meta">
@@ -848,7 +892,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839144144001GNwm" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="hc">
+    <div class="session-card" data-day="thu" data-track="hc">
       <div class="session-time">2:30 &ndash; 3:10 PM</div>
       <div class="session-title">Scale Personalized Service at CVS with Agentforce</div>
       <div class="session-meta">
@@ -859,7 +903,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779898824488001CkbF" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="ls">
+    <div class="session-card" data-day="thu" data-track="ls">
       <div class="session-time">2:30 &ndash; 3:10 PM</div>
       <div class="session-title">Agentforce Life Sciences Roadmap</div>
       <div class="session-meta">
@@ -871,9 +915,9 @@
     </div>
 
     <!-- ===== BRASIL HIGHLIGHT ===== -->
-    <div class="day-header" style="border-color:#15803d;">&#127463;&#127479; Brasil &amp; LATAM Sessions</div>
+    <div class="day-header" data-day="multi" style="border-color:#15803d;">&#127463;&#127479; Brasil &amp; LATAM Sessions</div>
 
-    <div class="session-card" data-track="br">
+    <div class="session-card" data-day="thu" data-track="br">
       <div class="session-time">Thu Sep 17 &middot; 2:30 &ndash; 2:50 PM</div>
       <div class="session-title">Beyond the Screen: How Globo Connects Millions with CRM &amp; AI</div>
       <div class="session-meta">
@@ -884,7 +928,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838697602001GCtG" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="br">
+    <div class="session-card" dadata-day="thu" data-track=r">
       <div class="session-time">Thu Sep 17 &middot; 12:30 &ndash; 1:15 PM</div>
       <div class="session-title">Meetup: LATAM Community</div>
       <div class="session-meta">
@@ -896,9 +940,9 @@
     </div>
 
     <!-- ===== AIFORCE / HEADLESS ===== -->
-    <div class="day-header" style="border-color:#4f46e5;">AIforce (Headless)</div>
+    <div class="day-header" data-day="multi" style="border-color:#4f46e5;">AIforce (Headless)</div>
 
-    <div class="session-card" data-track="af">
+    <div class="session-card" datadata-day="wed" data-track=>
       <div class="session-time">Wed Sep 16 &middot; 2:10 &ndash; 3:00 PM</div>
       <div class="session-title">AIforce Keynote: Anywhere Humans and Agents Work</div>
       <div class="session-meta">
@@ -909,8 +953,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781726973233001l5xc" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="af">
-      <div class="session-time">Tue Sep 15 &middot; 3:30 PM &amp; Wed 4:30 PM</div>
+    <div class="session-card" data-ddata-day="tue" data-track=      <div class="session-time">Tue Sep 15 &middot; 3:30 PM &amp; Wed 4:30 PM</div>
       <div class="session-title">How Salesforce Builds Headless Agents With AIforce</div>
       <div class="session-meta">
         <span>&#128205; Moscone North, Campground, Theater 3</span>
@@ -920,8 +963,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779917426918001bmXd" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="af">
-      <div class="session-time">Tue Sep 15 &middot; 2:00 &ndash; 2:40 PM</div>
+    <div class="session-card" data-daydata-day="tue" data-track=    <div class="session-time">Tue Sep 15 &middot; 2:00 &ndash; 2:40 PM</div>
       <div class="session-title">Intro to AIforce for Admins</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3024</span>
@@ -931,8 +973,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779839214152001GbWP" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="af">
-      <div class="session-time">Wed Sep 16 &middot; 12:00 &ndash; 12:40 PM</div>
+    <div class="session-card" data-day="data-day="wed" data-track=  <div class="session-time">Wed Sep 16 &middot; 12:00 &ndash; 12:40 PM</div>
       <div class="session-title">Build Browserless Experiences With Salesforce AIforce</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3024</span>
@@ -942,8 +983,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779919722012001MIcZ" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="af">
-      <div class="session-time">Wed Sep 16 &middot; 4:30 PM</div>
+    <div class="session-card" data-day="mudata-day="wed" data-track=<div class="session-time">Wed Sep 16 &middot; 4:30 PM</div>
       <div class="session-title">Unify Agent Experiences with the Headless Experience Layer</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L1 Forest, Admin Meadow</span>
@@ -953,8 +993,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1780092543759001EHZC" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="af hc">
-      <div class="session-time">Wed Sep 16 &middot; 3:00 &ndash; 4:00 PM</div>
+    <div class="session-card" data-day="multdata-day="wed" data-track= <div class="session-time">Wed Sep 16 &middot; 3:00 &ndash; 4:00 PM</div>
       <div class="session-title">Beyond the Browser: AIforce for Health &amp; Life Sciences</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L2, Room 2008</span>
@@ -966,10 +1005,9 @@
     </div>
 
     <!-- ===== DATA 360 ===== -->
-    <div class="day-header" style="border-color:#db2777;">Data 360</div>
+    <div class="day-header" data-day="multi" style="border-color:#db2777;">Data 360</div>
 
-    <div class="session-card" data-track="d3">
-      <div class="session-time">Wed Sep 16 &middot; 3:45 &ndash; 4:35 PM</div>
+    <div class="session-card" data-day="multi"data-day="wed" data-track= class="session-time">Wed Sep 16 &middot; 3:45 &ndash; 4:35 PM</div>
       <div class="session-title">Data 360 Keynote: Context Is Your AI Advantage</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Keynote Room 3001</span>
@@ -979,8 +1017,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1781726974670001ltzf" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="d3">
-      <div class="session-time">Wed Sep 16 &middot; 11:00 &ndash; 11:40 AM</div>
+    <div class="session-card" data-day="multi" ddata-day="wed" data-track=lass="session-time">Wed Sep 16 &middot; 11:00 &ndash; 11:40 AM</div>
       <div class="session-title">Data 360 Roadmap: Activating Trusted Context Everywhere</div>
       <div class="session-meta">
         <span>&#128205; Moscone South, Content Pavilion, Stage 5</span>
@@ -990,8 +1027,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838806673001GiuC" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="d3">
-      <div class="session-time">Tue Sep 15 &middot; 2:00 &ndash; 2:40 PM</div>
+    <div class="session-card" data-day="multi" datdata-day="tue" data-track=ss="session-time">Tue Sep 15 &middot; 2:00 &ndash; 2:40 PM</div>
       <div class="session-title">How Salesforce Builds Smarter Agents with Data 360</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3020</span>
@@ -1001,8 +1037,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779476134124001Hzgc" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="d3 hc">
-      <div class="session-time">Thu Sep 17 &middot; 12:00 &ndash; 12:20 PM</div>
+    <div class="session-card" data-day="multi" data-data-day="thu" data-track=ass="session-time">Thu Sep 17 &middot; 12:00 &ndash; 12:20 PM</div>
       <div class="session-title">Governing AI at Scale: CVS Health's Data 360 COE</div>
       <div class="session-meta">
         <span>&#128205; Moscone South, Content Pavilion, Stage 6</span>
@@ -1012,8 +1047,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779905188093001kv4p" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="d3">
-      <div class="session-time">Wed Sep 16 &middot; 2:00 &ndash; 2:40 PM</div>
+    <div class="session-card" data-day="multi" data-trdata-day="wed" data-track=session-time">Wed Sep 16 &middot; 2:00 &ndash; 2:40 PM</div>
       <div class="session-title">Build Trusted Data for Agentforce with Data 360</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3024</span>
@@ -1024,10 +1058,9 @@
     </div>
 
     <!-- ===== MARKETING ===== -->
-    <div class="day-header" style="border-color:#d97706;">Marketing</div>
+    <div class="day-header" data-day="multi" style="border-color:#d97706;">Marketing</div>
 
-    <div class="session-card" data-track="mk">
-      <div class="session-time">Tue Sep 15 &middot; 3:00 PM &amp; Wed 1:30 PM</div>
+    <div class="session-card" data-day="multi" data-tracdata-day="tue" data-track=ssion-time">Tue Sep 15 &middot; 3:00 PM &amp; Wed 1:30 PM</div>
       <div class="session-title">Natural Language Marketing: Getting Started with Headless</div>
       <div class="session-meta">
         <span>&#128205; Moscone West L2 / Moscone South Stage 6</span>
@@ -1037,8 +1070,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838906484001GS9Q" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="mk d3">
-      <div class="session-time">Wed Sep 16 &middot; 11:00 AM</div>
+    <div class="session-card" data-day="multi" data-track=data-day="wed" data-track=ession-time">Wed Sep 16 &middot; 11:00 AM</div>
       <div class="session-title">Inside Salesforce: How We Use Data 360 for Marketing</div>
       <div class="session-meta">
         <span>&#128205; Moscone South, Content Pavilion, Stage 6</span>
@@ -1049,10 +1081,9 @@
     </div>
 
     <!-- ===== PLATFORM ===== -->
-    <div class="day-header" style="border-color:#2563eb;">Platform &amp; Agentforce</div>
+    <div class="day-header" data-day="multi" style="border-color:#2563eb;">Platform &amp; Agentforce</div>
 
-    <div class="session-card" data-track="pl">
-      <div class="session-time">Tue Sep 15 &middot; 12:30 PM</div>
+    <div class="session-card" data-day="multi" data-track="pdata-day="tue" data-track=n-time">Tue Sep 15 &middot; 12:30 PM</div>
       <div class="session-title">Extend Agentforce with MCP and External Tools</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L2, Learning Lab Theater A</span>
@@ -1062,8 +1093,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1780009055465001bQVG" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="pl af">
-      <div class="session-time">Wed Sep 16 &middot; 1:30 PM &amp; Thu 12:30 PM</div>
+    <div class="session-card" data-day="multi" data-track="pl data-day="wed" data-track=on-time">Wed Sep 16 &middot; 1:30 PM &amp; Thu 12:30 PM</div>
       <div class="session-title">10 Agent Architecture Patterns from Salesforce AIforce</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L1 Forest, Architect Vista</span>
@@ -1074,8 +1104,8 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779640198713001P7QT" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="pl">
-      <div class="session-time">Tue Sep 15 &middot; 1:00 PM</div>
+    <div class="session-card" data-day="multi" data-track="pl">
+data-day="tue" data-track=me">Tue Sep 15 &middot; 1:00 PM</div>
       <div class="session-title">Scaled Trusted Insights with Headless Analytics (Tableau MCP)</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Room 3018</span>
@@ -1085,8 +1115,7 @@
       <a class="session-link" href="https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog/session/1779838859856001GeKd" target="_blank">View in catalog &rarr;</a>
     </div>
 
-    <div class="session-card" data-track="pl af">
-      <div class="session-time">Wed Sep 16 &middot; 4:30 PM</div>
+    <div class="session-card" data-day="multi" data-track="pl af">data-day="wed" data-track=ime">Wed Sep 16 &middot; 4:30 PM</div>
       <div class="session-title">Orchestrate AI with MuleSoft Agent Fabric Plus AIforce</div>
       <div class="session-meta">
         <span>&#128205; Moscone West, L3, Theater 17</span>
@@ -1102,7 +1131,7 @@
         &#128204; Add sessions to your agenda in the <strong style="color:var(--text-secondary)">Salesforce Events</strong> app &mdash; capacity fills fast!<br>
         Adicione as sess&otilde;es no app &mdash; vagas enchem r&aacute;pido!
       </p>
-      <a class="back-link" onclick="showSection('home')">&larr; Back to Home &middot; Voltar ao In&iacute;cio</a>
+      <a class="back-link" onclick="showSection('home')"><span data-lang="pt">&larr; Voltar ao In&iacute;cio</span><span data-lang="en">&larr; Back to Home</span></a>
     </div>
   </section>
 
@@ -1131,15 +1160,47 @@ function showSection(id) {
 function filterTrack(track) {
   document.querySelectorAll('.track-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.track-btn[data-track="${track}"]`).classList.add('active');
+  applyFilters();
+}
+
+// Persist checklist state
+document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach((cb, i) => {
+  const key = 'df26hls_' + i;
+  if (localStorage.getItem(key) === 'true') cb.checked = true;
+  cb.addEventListener('change', () => localStorage.setItem(key, cb.checked));
+});
+
+// Language toggle
+function setLang(lang) {
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  localStorage.setItem('df26hls_lang', lang);
+}
+const savedLang = localStorage.getItem('df26hls_lang');
+if (savedLang === 'en') setLang('en');
+
+// Day filter
+let activeDay = 'all';
+function filterDay(day) {
+  activeDay = day;
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.day-btn[data-day="${day}"]`).classList.add('active');
+  applyFilters();
+}
+
+// Combined filter (track + day)
+function applyFilters() {
+  const track = document.querySelector('.track-btn.active').dataset.track;
   document.querySelectorAll('.session-card').forEach(card => {
-    if (track === 'all') {
-      card.style.display = '';
-    } else {
-      card.style.display = card.dataset.track.includes(track) ? '' : 'none';
-    }
+    const matchTrack = track === 'all' || card.dataset.track.includes(track);
+    const matchDay = activeDay === 'all' || card.dataset.day === activeDay || card.dataset.day === 'multi';
+    card.style.display = (matchTrack && matchDay) ? '' : 'none';
   });
   document.querySelectorAll('.day-header').forEach(h => {
-    if (track === 'all') { h.style.display = ''; return; }
+    if (activeDay !== 'all' && h.dataset.day && h.dataset.day !== activeDay && h.dataset.day !== 'multi') {
+      h.style.display = 'none'; return;
+    }
     let next = h.nextElementSibling;
     let hasVisible = false;
     while (next && !next.classList.contains('day-header')) {
@@ -1149,13 +1210,6 @@ function filterTrack(track) {
     h.style.display = hasVisible ? '' : 'none';
   });
 }
-
-// Persist checklist state
-document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach((cb, i) => {
-  const key = 'df26hls_' + i;
-  if (localStorage.getItem(key) === 'true') cb.checked = true;
-  cb.addEventListener('change', () => localStorage.setItem(key, cb.checked));
-});
 
 // Handle direct anchor links
 if (location.hash) {
